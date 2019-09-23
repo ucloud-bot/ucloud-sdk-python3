@@ -390,11 +390,6 @@ class UNetClient(Client):
         - **ShareBandwidthId** (str) - 共享带宽ID
         - **ShareBandwidthName** (str) - 共享带宽的资源名称
 
-        **UnetEIPAddrSet** 
-        
-        - **IP** (str) - IP地址
-        - **OperatorName** (str) - 运营商信息如: 电信: Telecom, 联通: Unicom, 国际: International, Duplet: 双线IP（电信+联通), BGP: Bgp
-
         **UnetEIPResourceSet** 
         
         - **EIPId** (str) - 弹性IP的资源ID
@@ -404,6 +399,11 @@ class UNetClient(Client):
         - **SubResourceId** (str) - 资源绑定的虚拟网卡的ID
         - **SubResourceName** (str) - 资源绑定的虚拟网卡的名称
         - **SubResourceType** (str) - 资源绑定的虚拟网卡的类型。uni，虚拟网卡。
+
+        **UnetEIPAddrSet** 
+        
+        - **IP** (str) - IP地址
+        - **OperatorName** (str) - 运营商信息如: 电信: Telecom, 联通: Unicom, 国际: International, Duplet: 双线IP（电信+联通), BGP: Bgp
 
         **UnetEIPSet** 
         
