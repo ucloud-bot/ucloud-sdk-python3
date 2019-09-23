@@ -59,6 +59,7 @@ class CloneUDiskRequestSchema(schema.RequestSchema):
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "SourceId": fields.Str(required=True, dump_to="SourceId"),
+        "Tag": fields.Str(required=False, dump_to="Tag"),
         "UDataArkMode": fields.Str(required=False, dump_to="UDataArkMode"),
         "Zone": fields.Str(required=True, dump_to="Zone"),
     }
@@ -94,8 +95,9 @@ class CloneUDiskSnapshotRequestSchema(schema.RequestSchema):
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
         "Region": fields.Str(required=True, dump_to="Region"),
-        "Size": fields.Int(required=True, dump_to="Size"),
+        "Size": fields.Int(required=False, dump_to="Size"),
         "SourceId": fields.Str(required=True, dump_to="SourceId"),
+        "Tag": fields.Str(required=False, dump_to="Tag"),
         "UDataArkMode": fields.Str(required=False, dump_to="UDataArkMode"),
         "Zone": fields.Str(required=True, dump_to="Zone"),
     }
@@ -290,6 +292,8 @@ class DescribeUDiskPriceRequestSchema(schema.RequestSchema):
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
         "DiskType": fields.Str(required=False, dump_to="DiskType"),
+        "IsTotalPrice": fields.Str(required=False, dump_to="IsTotalPrice"),
+        "MachineType": fields.Str(required=False, dump_to="MachineType"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -359,6 +363,7 @@ class DescribeUDiskUpgradePriceRequestSchema(schema.RequestSchema):
 
     fields = {
         "DiskType": fields.Str(required=False, dump_to="DiskType"),
+        "MachineType": fields.Str(required=False, dump_to="MachineType"),
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "Size": fields.Int(required=True, dump_to="Size"),
@@ -394,7 +399,7 @@ class DetachUDiskRequestSchema(schema.RequestSchema):
         "Region": fields.Str(required=True, dump_to="Region"),
         "UDiskId": fields.Str(required=True, dump_to="UDiskId"),
         "UHostId": fields.Str(required=True, dump_to="UHostId"),
-        "Zone": fields.Str(required=True, dump_to="Zone"),
+        "Zone": fields.Str(required=False, dump_to="Zone"),
     }
 
 
@@ -448,6 +453,7 @@ class ResizeUDiskRequestSchema(schema.RequestSchema):
 
     fields = {
         "CouponId": fields.Str(required=False, dump_to="CouponId"),
+        "MachineType": fields.Str(required=False, dump_to="MachineType"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "Size": fields.Int(required=True, dump_to="Size"),
