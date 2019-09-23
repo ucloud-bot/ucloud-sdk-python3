@@ -8,14 +8,14 @@ SDK 自动发布
 {{- end }}
 
 FEATURE:
-{{ range $changelog := .ChangeLogs }}
+{{ range $changelog := . }}
 {{- if and (ne .ChangeLevel "field") }}
 - {{ .ChangeType | title }} {{ template "name" . -}}
 {{- end -}}
 {{ end }}
 
 ENHANCEMENT:
-{{ range $changelog := .ChangeLogs }}
+{{ range $changelog := . }}
 {{- if (eq .ChangeLevel "field") }}
 - {{ if .IsCritical }}(**BREAK CHANGE**) {{ end }}{{ .ChangeType | title }} {{ template "name" . -}}
 {{- end -}}
