@@ -384,12 +384,6 @@ class UNetClient(Client):
         
         **Response Model**
         
-        **ShareBandwidthSet** 
-        
-        - **ShareBandwidth** (int) - 共享带宽带宽值
-        - **ShareBandwidthId** (str) - 共享带宽ID
-        - **ShareBandwidthName** (str) - 共享带宽的资源名称
-
         **UnetEIPAddrSet** 
         
         - **IP** (str) - IP地址
@@ -404,6 +398,12 @@ class UNetClient(Client):
         - **SubResourceId** (str) - 资源绑定的虚拟网卡的ID
         - **SubResourceName** (str) - 资源绑定的虚拟网卡的名称
         - **SubResourceType** (str) - 资源绑定的虚拟网卡的类型。uni，虚拟网卡。
+
+        **ShareBandwidthSet** 
+        
+        - **ShareBandwidth** (int) - 共享带宽带宽值
+        - **ShareBandwidthId** (str) - 共享带宽ID
+        - **ShareBandwidthName** (str) - 共享带宽的资源名称
 
         **UnetEIPSet** 
         
