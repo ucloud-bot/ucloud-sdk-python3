@@ -49,10 +49,11 @@ class UDiskClient(Client):
         - **Name** (str) - (Required) 实例名称
         - **SourceId** (str) - (Required) 克隆父Disk的Id
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
-        - **ChargeType** (str) - Year , Month, Dynamic，Postpay 默认: Dynamic
+        - **ChargeType** (str) - Year , Month, Dynamic，Postpay，Trial 默认: Dynamic
         - **Comment** (str) - Disk注释
         - **CouponId** (str) - 使用的代金券id
         - **Quantity** (int) - 购买时长 默认: 1
+        - **Tag** (str) - 业务组 默认：Default
         - **UDataArkMode** (str) - 方舟是否开启，"Yes":开启，"No":关闭；默认为"No"
         
         **Response**
@@ -81,14 +82,15 @@ class UDiskClient(Client):
         - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **Name** (str) - (Required) 实例名称
-        - **Size** (int) - (Required) 购买UDisk大小,单位:GB,范围[1~2000], 权限位控制可达8T,若需要请申请开通相关权限。
         - **SourceId** (str) - (Required) 克隆父Snapshot的Id
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **ChargeType** (str) - Year , Month, Dynamic，Postpay 默认: Dynamic
         - **Comment** (str) - Disk注释
         - **CouponId** (str) - 使用的代金券id
         - **Quantity** (int) - 购买时长 默认: 1
-        - **UDataArkMode** (str) - 是否开启数据方舟   默认:No
+        - **Size** (int) - 购买UDisk大小,单位:GB,范围[1~2000], 权限位控制可达8T,若需要请申请开通相关权限。(UDisk大小设定对本地盘快照有效，对云盘快照无效)
+        - **Tag** (str) - 业务组 默认：Default
+        - **UDataArkMode** (str) - 是否开启数据方舟 Yes:开启数据方舟 No:关闭数据方舟 默认:No
         
         **Response**
 
@@ -153,9 +155,9 @@ class UDiskClient(Client):
         - **Name** (str) - (Required) 快照名称
         - **UDiskId** (str) - (Required) 快照的UDisk的Id
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
-        - **ChargeType** (str) - Year , Month, Dynamic 默认: Dynamic
+        - **ChargeType** (str) - Year , Month, Dynamic 默认: Dynamic  (已废弃)
         - **Comment** (str) - 快照描述
-        - **Quantity** (int) - 购买时长 默认: 1
+        - **Quantity** (int) - 购买时长 默认: 1  (已废弃)
         
         **Response**
 
@@ -229,7 +231,7 @@ class UDiskClient(Client):
 
         - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
-        - **DiskType** (str) - ProtocolVersion字段为1时，需结合IsBoot确定具体磁盘类型:普通数据盘：DiskType:"CLOUD_NORMAL",IsBoot:"False"； 普通系统盘：DiskType:"CLOUD_NORMAL",IsBoot:"True"；SSD数据盘：DiskType:"CLOUD_SSD",IsBoot:"False"；SSD系统盘：DiskType:"CLOUD_SSD",IsBoot:"True"；RSSD数据盘：DiskType:"CLOUD_RSSD",IsBoot:"False"；为空拉取所有。ProtocolVersion字段为0或没有该字段时，可设为以下几个值:普通数据盘：DataDisk；普通系统盘；SystemDisk；SSD数据盘：SSDDataDisk；SSD系统盘：SSDSystemDisk；RSSD数据盘：RSSDDataDisk；为空拉取所有。
+        - **DiskType** (str) - ProtocolVersion字段为1时，需结合IsBoot确定具体磁盘类型:普通数据盘：DiskType:"CLOUD_NORMAL",IsBoot:"False"；普通系统盘：DiskType:"CLOUD_NORMAL",IsBoot:"True"；SSD数据盘：DiskType:"CLOUD_SSD",IsBoot:"False"；SSD系统盘：DiskType:"CLOUD_SSD",IsBoot:"True"；RSSD数据盘：DiskType:"CLOUD_RSSD",IsBoot:"False"；为空拉取所有。ProtocolVersion字段为0或没有该字段时，可设为以下几个值:普通数据盘：DataDisk；普通系统盘：SystemDisk；SSD数据盘：SSDDataDisk；SSD系统盘：SSDSystemDisk；RSSD数据盘：RSSDDataDisk；为空拉取所有。
         - **IsBoot** (str) - ProtocolVersion字段为1且DiskType不为空时，必须设置，设置规则请参照DiskType；ProtocolVersion字段为1且DiskType为空时，该字段无效。ProtocolVersion字段为0或没有该字段时，该字段无效。
         - **Limit** (int) - 返回数据长度, 默认为20
         - **Offset** (int) - 数据偏移量, 默认为0
@@ -295,8 +297,10 @@ class UDiskClient(Client):
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **Size** (int) - (Required) 购买UDisk大小,单位:GB,范围[1~1000]
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
-        - **ChargeType** (str) - Year， Month， Dynamic，Trial，默认: Dynamic
+        - **ChargeType** (str) - Year , Month, Dynamic，Postpay，Trial 默认: Dynamic
         - **DiskType** (str) - UDisk 类型: DataDisk（普通数据盘），SSDDataDisk（SSD数据盘），SystemDisk（普通系统盘），SSDSystemDisk（SSD系统盘），RSSDDataDisk（RSSD数据盘），默认值（DataDisk）
+        - **IsTotalPrice** (str) - 是否将数据方舟，云硬盘放入一张订单, 是："Yes",否："No"，默认是"No"
+        - **MachineType** (str) - 云主机机型（V2.0），枚举值["N", "C", "G", "O", "OM"]。参考 `云主机机型说明 <https://docs.ucloud.cn/api/uhost-api/uhost_type>`_ 。
         - **Quantity** (int) - 购买UDisk的时长，默认值为1
         - **UDataArkMode** (str) - 是否打开数据方舟, 打开"Yes",关闭"No", 默认关闭
         
@@ -308,10 +312,11 @@ class UDiskClient(Client):
         
         **UDiskPriceDataSet** 
         
-        - **ChargeName** (str) - "UDataArk","UDisk"
+        - **ChargeName** (str) - "UDataArk","UDisk","Total"
         - **ChargeType** (str) - Year， Month， Dynamic，Trial
-        - **OriginalPrice** (int) - 用户折后价
-        - **Price** (int) - 价格 (单位: 分)
+        - **ListPrice** (int) - 原价(对应计费OriginalPrice)
+        - **OriginalPrice** (int) - 用户折后价(对应计费CustomPrice)
+        - **Price** (int) - 实际价格 (单位: 分)
 
         """
         # build request
@@ -387,11 +392,12 @@ class UDiskClient(Client):
         - **SourceId** (str) - (Required) 升级目标UDisk ID
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **DiskType** (str) - 磁盘类型，SSDDataDisk:ssd数据盘,DataDisk:普通数据盘,SystemDisk:普通系统盘,SSDSystemDisk:ssd系统盘。默认为DataDisk
+        - **MachineType** (str) - 云主机机型（V2.0），枚举值["N", "C", "G", "O", "OM"]。参考 `云主机机型说明 <https://docs.ucloud.cn/api/uhost-api/uhost_type>`_ 。
         - **UDataArkMode** (str) - 是否打开数据方舟, 打开"Yes",关闭"No", 默认关闭
         
         **Response**
 
-        - **OriginalPrice** (int) - 用户折后价
+        - **OriginalPrice** (int) - 用户折后价 (对应计费CustomPrice)
         - **Price** (int) - 价格
         
         """
@@ -412,7 +418,7 @@ class UDiskClient(Client):
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **UDiskId** (str) - (Required) 需要卸载的UDisk实例ID
         - **UHostId** (str) - (Required) UHost实例ID
-        - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
+        - **Zone** (str) - 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         
         **Response**
 
@@ -462,6 +468,7 @@ class UDiskClient(Client):
         - **UDiskId** (str) - (Required) UDisk Id
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **CouponId** (str) - 使用的代金券id
+        - **MachineType** (str) - 云主机机型（V2.0），枚举值["N", "C", "G", "O", "OM"]。参考 `云主机机型说明 <https://docs.ucloud.cn/api/uhost-api/uhost_type>`_ 。
         
         **Response**
 

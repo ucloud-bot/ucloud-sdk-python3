@@ -69,7 +69,7 @@ class CreateUMemcacheGroupRequestSchema(schema.RequestSchema):
         "Tag": fields.Str(required=False, dump_to="Tag"),
         "VPCId": fields.Str(required=False, dump_to="VPCId"),
         "Version": fields.Str(required=False, dump_to="Version"),
-        "Zone": fields.Str(required=False, dump_to="Zone"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
     }
 
 
@@ -294,7 +294,7 @@ class DescribeUMemUpgradePriceResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "DataSet": models.PriceDataSetSchema(),
+        "OriginalPrice": fields.Int(required=False, load_from="OriginalPrice"),
         "Price": fields.Int(required=False, load_from="Price"),
     }
 
@@ -394,7 +394,7 @@ class DescribeUMemcacheUpgradePriceResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "DataSet": models.PriceDataSetSchema(),
+        "OriginalPrice": fields.Int(required=False, load_from="OriginalPrice"),
         "Price": fields.Int(required=False, load_from="Price"),
     }
 
@@ -559,7 +559,7 @@ class DescribeURedisUpgradePriceResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "DataSet": models.PriceDataSetSchema(),
+        "OriginalPrice": fields.Int(required=False, load_from="OriginalPrice"),
         "Price": fields.Int(required=False, load_from="Price"),
     }
 

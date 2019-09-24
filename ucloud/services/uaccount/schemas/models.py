@@ -11,8 +11,8 @@ class ProjectListInfoSchema(schema.ResponseSchema):
         "CreateTime": fields.Int(required=True, load_from="CreateTime"),
         "IsDefault": fields.Bool(required=True, load_from="IsDefault"),
         "MemberCount": fields.Int(required=True, load_from="MemberCount"),
-        "ParentId": fields.Str(required=True, load_from="ParentId"),
-        "ParentName": fields.Str(required=True, load_from="ParentName"),
+        "ParentId": fields.Str(required=False, load_from="ParentId"),
+        "ParentName": fields.Str(required=False, load_from="ParentName"),
         "ProjectId": fields.Str(required=True, load_from="ProjectId"),
         "ProjectName": fields.Str(required=True, load_from="ProjectName"),
         "ResourceCount": fields.Int(required=True, load_from="ResourceCount"),
@@ -45,6 +45,10 @@ class UserInfoSchema(schema.ResponseSchema):
         "CompanyName": fields.Str(required=True, load_from="CompanyName"),
         "Finance": fields.Int(required=True, load_from="Finance"),
         "IndustryType": fields.Int(required=True, load_from="IndustryType"),
+        "MandatoryTOTP": fields.Str(required=True, load_from="MandatoryTOTP"),
+        "PasswordPolicyDate": fields.Str(
+            required=True, load_from="PasswordPolicyDate"
+        ),
         "PhonePrefix": fields.Str(required=True, load_from="PhonePrefix"),
         "Province": fields.Str(required=True, load_from="Province"),
         "UserAddress": fields.Str(required=True, load_from="UserAddress"),
