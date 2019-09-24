@@ -170,12 +170,14 @@ class ULBClient(Client):
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **BusinessId** (str) - ULB 所属的业务组ID，如果不传则使用默认的业务组
         - **ChargeType** (str) - 付费方式
+        - **FirewallId** (str) - 防火墙ID，如果不传，则默认不绑定防火墙
         - **IPVersion** (str) - ULB ip类型，枚举值：IPv6 / IPv4 （内部测试，暂未对外开放）
         - **InnerMode** (str) - 创建的ULB是否为内网模式
-        - **ListenType** (str) - ULB 监听器类型，枚举值：RequestProxy / PacketsTransmit （内部测试，暂未对外开放）
+        - **ListenType** (str) - ULB 监听器类型，枚举值：RequestProxy / PacketsTransmit ,默认RequestProxy （内部测试，暂未对外开放）
         - **OuterMode** (str) - 创建的ULB是否为外网模式，默认即为外网模式
         - **PrivateIp** (str) - 创建内网ULB时指定内网IP。若不传值，则随机分配当前子网下的IP（暂时不对外开放，创建外网ULB该字段会忽略）
         - **Remark** (str) - 备注
+        - **ShareBandwidthId** (str) - IPv6地址所属的共享带宽Id。IPVersion为“IPv6”时，该字段必填
         - **SubnetId** (str) - 内网ULB 所属的子网ID，如果不传则使用默认的子网
         - **Tag** (str) - 业务组
         - **ULBName** (str) - 负载均衡的名字，默认值为“ULB”
@@ -183,6 +185,7 @@ class ULBClient(Client):
         
         **Response**
 
+        - **IPv6AddressId** (str) - IPv6地址Id
         - **ULBId** (str) - 负载均衡实例的Id
         
         """
@@ -422,6 +425,14 @@ class ULBClient(Client):
         - **SSLId** (str) - SSL证书的Id
         - **SSLName** (str) - SSL证书的名字
 
+        **ULBIPSet** 
+        
+        - **Bandwidth** (int) - 弹性IP的带宽值（暂未对外开放）
+        - **BandwidthType** (int) - 弹性IP的带宽类型，枚举值：1 表示是共享带宽，0 普通带宽类型（暂未对外开放）
+        - **EIP** (str) - 弹性IP地址
+        - **EIPId** (str) - 弹性IP的ID
+        - **OperatorName** (str) - 弹性IP的运营商信息，枚举值为：  Bgp：BGP IP International：国际IP
+
         **ULBVServerSet** 
         
         - **BackendSet** (list) - 见 **ULBBackendSet** 模型定义
@@ -440,14 +451,6 @@ class ULBClient(Client):
         - **Status** (int) - VServer的运行状态。枚举值： 0 -> rs全部运行正常;1 -> rs全部运行异常；2 -> rs部分运行异常。
         - **VServerId** (str) - VServer实例的Id
         - **VServerName** (str) - VServer实例的名字
-
-        **ULBIPSet** 
-        
-        - **Bandwidth** (int) - 弹性IP的带宽值（暂未对外开放）
-        - **BandwidthType** (int) - 弹性IP的带宽类型，枚举值：1 表示是共享带宽，0 普通带宽类型（暂未对外开放）
-        - **EIP** (str) - 弹性IP地址
-        - **EIPId** (str) - 弹性IP的ID
-        - **OperatorName** (str) - 弹性IP的运营商信息，枚举值为：  Bgp：BGP IP International：国际IP
 
         **ULBSet** 
         
@@ -507,12 +510,6 @@ class ULBClient(Client):
         - **PrivateIP** (str) - 后端资源的内网IP
         - **ResourceName** (str) - 后端资源的实例名称
 
-        **ULBSSLSet** 
-        
-        - **HashValue** (str) - 
-        - **SSLId** (str) - SSL证书的Id
-        - **SSLName** (str) - SSL证书的名字
-
         **ULBPolicySet** 
         
         - **BackendSet** (list) - 见 **PolicyBackendSet** 模型定义
@@ -539,6 +536,12 @@ class ULBClient(Client):
         - **SubResourceType** (str) - 资源绑定的虚拟网卡实例的类型
         - **SubnetId** (str) - 后端提供服务的资源所在的子网的ID
         - **Weight** (int) - 
+
+        **ULBSSLSet** 
+        
+        - **HashValue** (str) - 
+        - **SSLId** (str) - SSL证书的Id
+        - **SSLName** (str) - SSL证书的名字
 
         **ULBVServerSet** 
         
@@ -715,7 +718,6 @@ class ULBClient(Client):
         - **Path** (str) - MonitorType 为 Path 时指定健康检查发送请求时的路径，默认为 /
         - **PersistenceInfo** (str) - 根据PersistenceType确定: None或ServerInsert, 此字段无意义; UserDefined, 则此字段传入用户自定义会话保持String. 若无此字段则不做修改
         - **PersistenceType** (str) - VServer会话保持模式，若无此字段则不做修改。枚举值：None：关闭；ServerInsert：自动生成KEY；UserDefined：用户自定义KEY。
-        - **Protocol** (str) - VServer协议类型，请求代理只支持修改为 HTTP/HTTPS，报文转发VServer只支持修改为 TCP/UDP
         - **VServerName** (str) - VServer实例名称，若无此字段则不做修改
         
         **Response**

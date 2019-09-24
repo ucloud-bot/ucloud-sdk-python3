@@ -341,7 +341,7 @@ class VPCClient(Client):
         - **RouteRules** (list) - 见 **RouteRuleInfo** 模型定义
         - **RouteTableId** (str) - 路由表ID
         - **RouteTableType** (int) - 路由表类型，1为默认，0为自定义
-        - **SubnetCount** (str) - 绑定了该路由表的子网数量
+        - **SubnetCount** (int) - 绑定了该路由表的子网数量
         - **Tag** (str) - 业务组
         - **VPCId** (str) - 路由表所属vpc
         - **VPCName** (str) - vpc名称
@@ -386,7 +386,7 @@ class VPCClient(Client):
         - **Gateway** (str) - 子网网关
         - **HasNATGW** (bool) - 是否有natgw
         - **IPv6Network** (str) - 子网关联的IPv6网段
-        - **Netmask** (int) - 子网掩码
+        - **Netmask** (str) - 子网掩码
         - **OperatorName** (str) - 子网关联的IPv6网段所属运营商
         - **Remark** (str) - 备注
         - **RouteTableId** (str) - 路由表Id
@@ -506,6 +506,7 @@ class VPCClient(Client):
         - **VPCId** (str) - (Required) VPC短ID
         - **DstProjectId** (str) - 目的项目ID，默认为全部项目
         - **DstRegion** (str) - 目的VPC所在地域，默认为全部地域
+        - **HasHybrid** (int) - 是否显示托管云VPC（默认是不显示，HasHybrid=0）
         
         **Response**
 
@@ -620,7 +621,6 @@ class VPCClient(Client):
         
         **Response**
 
-        - **Message** (str) - 错误信息
         
         """
         # build request

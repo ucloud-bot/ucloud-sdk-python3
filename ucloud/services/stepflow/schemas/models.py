@@ -3,17 +3,6 @@
 from ucloud.core.typesystem import schema, fields
 
 
-class ParamSchema(schema.ResponseSchema):
-    """ Param - 工作流参数
-    """
-
-    fields = {
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Type": fields.Str(required=False, load_from="Type"),
-        "Value": fields.Str(required=False, load_from="Value"),
-    }
-
-
 class ActivityTemplateSchema(schema.ResponseSchema):
     """ ActivityTemplate - 工作流的Activity定义
     """
@@ -26,6 +15,17 @@ class ActivityTemplateSchema(schema.ResponseSchema):
         "RetryTimes": fields.Str(required=False, load_from="RetryTimes"),
         "Timeout": fields.Str(required=False, load_from="Timeout"),
         "Type": fields.Str(required=False, load_from="Type"),
+    }
+
+
+class ParamSchema(schema.ResponseSchema):
+    """ Param - 工作流参数
+    """
+
+    fields = {
+        "Name": fields.Str(required=False, load_from="Name"),
+        "Type": fields.Str(required=False, load_from="Type"),
+        "Value": fields.Str(required=False, load_from="Value"),
     }
 
 
