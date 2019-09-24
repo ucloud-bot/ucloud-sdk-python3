@@ -31,23 +31,6 @@ class UHostImageSetSchema(schema.ResponseSchema):
     }
 
 
-class UHostDiskSetSchema(schema.ResponseSchema):
-    """ UHostDiskSet - DescribeUHostInstance
-    """
-
-    fields = {
-        "BackupType": fields.Str(required=False, load_from="BackupType"),
-        "DiskId": fields.Str(required=False, load_from="DiskId"),
-        "DiskType": fields.Str(required=True, load_from="DiskType"),
-        "Drive": fields.Str(required=False, load_from="Drive"),
-        "Encrypted": fields.Bool(required=False, load_from="Encrypted"),
-        "IsBoot": fields.Str(required=True, load_from="IsBoot"),
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Size": fields.Int(required=False, load_from="Size"),
-        "Type": fields.Str(required=False, load_from="Type"),
-    }
-
-
 class UHostIPSetSchema(schema.ResponseSchema):
     """ UHostIPSet - DescribeUHostInstance
     """
@@ -60,6 +43,23 @@ class UHostIPSetSchema(schema.ResponseSchema):
         "SubnetId": fields.Str(required=False, load_from="SubnetId"),
         "Type": fields.Str(required=False, load_from="Type"),
         "VPCId": fields.Str(required=False, load_from="VPCId"),
+    }
+
+
+class UHostDiskSetSchema(schema.ResponseSchema):
+    """ UHostDiskSet - DescribeUHostInstance
+    """
+
+    fields = {
+        "BackupType": fields.Str(required=False, load_from="BackupType"),
+        "DiskId": fields.Str(required=False, load_from="DiskId"),
+        "DiskType": fields.Str(required=True, load_from="DiskType"),
+        "Drive": fields.Str(required=False, load_from="Drive"),
+        "Encrypted": fields.Str(required=False, load_from="Encrypted"),
+        "IsBoot": fields.Str(required=True, load_from="IsBoot"),
+        "Name": fields.Str(required=False, load_from="Name"),
+        "Size": fields.Int(required=False, load_from="Size"),
+        "Type": fields.Str(required=False, load_from="Type"),
     }
 
 
@@ -131,5 +131,6 @@ class UHostPriceSetSchema(schema.ResponseSchema):
 
     fields = {
         "ChargeType": fields.Str(required=True, load_from="ChargeType"),
+        "OriginalPrice": fields.Float(required=True, load_from="OriginalPrice"),
         "Price": fields.Float(required=True, load_from="Price"),
     }
