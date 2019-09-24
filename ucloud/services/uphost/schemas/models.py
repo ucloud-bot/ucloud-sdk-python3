@@ -8,26 +8,22 @@ class PHostDiskSetSchema(schema.ResponseSchema):
     """
 
     fields = {
+        "CoreCount": fields.Int(required=False, load_from="CoreCount"),
         "Count": fields.Int(required=False, load_from="Count"),
-        "IOCap": fields.Int(required=False, load_from="IOCap"),
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Space": fields.Int(required=False, load_from="Space"),
-        "Type": fields.Str(required=False, load_from="Type"),
+        "Frequence": fields.Float(required=False, load_from="Frequence"),
+        "Model": fields.Str(required=False, load_from="Model"),
     }
 
 
-class PHostIPSetSchema(schema.ResponseSchema):
-    """ PHostIPSet - DescribePHost
+class PHostCPUSetSchema(schema.ResponseSchema):
+    """ PHostCPUSet - DescribePHost
     """
 
     fields = {
-        "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
-        "IPAddr": fields.Str(required=False, load_from="IPAddr"),
-        "IPId": fields.Str(required=False, load_from="IPId"),
-        "MACAddr": fields.Str(required=False, load_from="MACAddr"),
-        "OperatorName": fields.Str(required=False, load_from="OperatorName"),
-        "SubnetId": fields.Str(required=False, load_from="SubnetId"),
-        "VPCId": fields.Str(required=False, load_from="VPCId"),
+        "CoreCount": fields.Int(required=False, load_from="CoreCount"),
+        "Count": fields.Int(required=False, load_from="Count"),
+        "Frequence": fields.Float(required=False, load_from="Frequence"),
+        "Model": fields.Str(required=False, load_from="Model"),
     }
 
 
