@@ -73,6 +73,16 @@ class UPHostClient(Client):
         
         **Response Model**
         
+        **PHostIPSet** 
+        
+        - **Bandwidth** (int) - IP对应带宽，单位Mb，内网IP不显示带宽信息
+        - **IPAddr** (str) - IP地址，
+        - **IPId** (str) - IP资源ID(内网IP无资源ID)（待废弃）
+        - **MACAddr** (str) - MAC地址
+        - **OperatorName** (str) - 国际: Internation， BGP: BGP， 内网: Private
+        - **SubnetId** (str) - 子网ID
+        - **VPCId** (str) - VPC ID
+
         **PHostDiskSet** 
         
         - **Count** (int) - 磁盘数量
@@ -88,20 +98,10 @@ class UPHostClient(Client):
         - **Frequence** (float) - CPU主频
         - **Model** (str) - CPU型号
 
-        **PHostIPSet** 
-        
-        - **Bandwidth** (int) - IP对应带宽，单位Mb，内网IP不显示带宽信息
-        - **IPAddr** (str) - IP地址，
-        - **IPId** (str) - IP资源ID(内网IP无资源ID)（待废弃）
-        - **MACAddr** (str) - MAC地址
-        - **OperatorName** (str) - 国际: Internation， BGP: BGP， 内网: Private
-        - **SubnetId** (str) - 子网ID
-        - **VPCId** (str) - VPC ID
-
         **PHostSet** 
         
         - **AutoRenew** (str) - 自动续费
-        - **CPUSet** (list) - 见 **PHostCPUSet** 模型定义
+        - **CPUSet** (dict) - 见 **PHostCPUSet** 模型定义
         - **ChargeType** (str) - 计费模式，枚举值为： Year，按年付费； Month，按月付费； Dynamic，按需付费（需开启权限）； Trial，试用（需开启权限）默认为月付
         - **Cluster** (str) - 网络环境。枚举值：千兆：1G ，万兆：10G
         - **Components** (str) - 组件信息（暂不支持）
