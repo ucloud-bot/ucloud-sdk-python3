@@ -384,6 +384,11 @@ class UNetClient(Client):
         
         **Response Model**
         
+        **UnetEIPAddrSet** 
+        
+        - **IP** (str) - IP地址
+        - **OperatorName** (str) - 运营商信息如: 电信: Telecom, 联通: Unicom, 国际: International, Duplet: 双线IP（电信+联通), BGP: Bgp
+
         **ShareBandwidthSet** 
         
         - **ShareBandwidth** (int) - 共享带宽带宽值

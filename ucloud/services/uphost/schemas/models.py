@@ -43,6 +43,18 @@ class PHostCPUSetSchema(schema.ResponseSchema):
     }
 
 
+class PHostCPUSetSchema(schema.ResponseSchema):
+    """ PHostCPUSet - DescribePHost
+    """
+
+    fields = {
+        "CoreCount": fields.Int(required=False, load_from="CoreCount"),
+        "Count": fields.Int(required=False, load_from="Count"),
+        "Frequence": fields.Float(required=False, load_from="Frequence"),
+        "Model": fields.Str(required=False, load_from="Model"),
+    }
+
+
 class PHostSetSchema(schema.ResponseSchema):
     """ PHostSet - DescribePHost
     """
