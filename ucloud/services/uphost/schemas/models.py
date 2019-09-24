@@ -49,7 +49,7 @@ class PHostSetSchema(schema.ResponseSchema):
 
     fields = {
         "AutoRenew": fields.Str(required=False, load_from="AutoRenew"),
-        "CPUSet": fields.List(PHostCPUSetSchema()),
+        "CPUSet": PHostCPUSetSchema(),
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
         "Cluster": fields.Str(required=False, load_from="Cluster"),
         "Components": fields.Str(required=False, load_from="Components"),

@@ -61,6 +61,7 @@ class UMemClient(Client):
         - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **Name** (str) - (Required) 请求创建组的名称 范围[6-60]
+        - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **ChargeType** (str) - 计费模式，Year , Month, Dynamic 默认: Month
         - **ConfigId** (str) - 配置ID,目前仅支持默认配置id 默认配置id:"9a891891-c245-4b66-bce8-67e59430d67c"
         - **CouponId** (str) - 代金券ID
@@ -71,7 +72,6 @@ class UMemClient(Client):
         - **Tag** (str) - 业务组 默认：Default
         - **VPCId** (str) - 
         - **Version** (str) - Memcache版本信息,默认为1.4.31
-        - **Zone** (str) - 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         
         **Response**
 
@@ -230,7 +230,7 @@ class UMemClient(Client):
         
         - **ChargeType** (str) - Year， Month， Dynamic，Trial
         - **OriginalPrice** (int) - 原价
-        - **Price** (int) - 现价，单位: 元，保留小数点后两位有效数字
+        - **Price** (int) - 现价
 
         """
         # build request
@@ -311,17 +311,9 @@ class UMemClient(Client):
         
         **Response**
 
-        - **DataSet** (dict) - 见 **PriceDataSet** 模型定义
-        - **Price** (int) - 价格(兼容老版本)
+        - **OriginalPrice** (int) - 原价
+        - **Price** (int) - 价格
         
-        **Response Model**
-        
-        **PriceDataSet** 
-        
-        - **CustomPrice** (int) - 用户折后价
-        - **PurchaseValue** (int) - 资源有效期
-        - **TotalPrice** (int) - 升降级资源的价格
-
         """
         # build request
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
@@ -405,7 +397,7 @@ class UMemClient(Client):
         
         - **ChargeType** (str) - 计费模式，Year, Month, Dynamic
         - **OriginalPrice** (int) - 原价
-        - **Price** (int) - 总价格，单位: 元，保留小数点后两位有效数字
+        - **Price** (int) - 总价格
 
         """
         # build request
@@ -431,17 +423,9 @@ class UMemClient(Client):
         
         **Response**
 
-        - **DataSet** (dict) - 见 **PriceDataSet** 模型定义
-        - **Price** (int) - 价格，单位：元
+        - **OriginalPrice** (int) - 原价
+        - **Price** (int) - 价格
         
-        **Response Model**
-        
-        **PriceDataSet** 
-        
-        - **CustomPrice** (int) - 用户折后价
-        - **PurchaseValue** (int) - 资源有效期
-        - **TotalPrice** (int) - 升降级资源的价格
-
         """
         # build request
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
@@ -559,6 +543,7 @@ class UMemClient(Client):
         - **Port** (int) - 节点分配的服务端口
         - **Protocol** (str) - 协议
         - **RewriteTime** (int) - 返回运维时间 0 //0点 1 //1点 以此类推
+        - **Role** (str) - 实例类型
         - **Size** (int) - 容量单位GB
         - **SlaveZone** (str) - 跨机房URedis，slave redis所在可用区，参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **State** (str) - 状态标记 Creating // 初始化中 CreateFail // 创建失败 Deleting // 删除中 DeleteFail // 删除失败 Running // 运行 Resizing // 容量调整中 ResizeFail // 容量调整失败 Configing // 配置中 ConfigFail // 配置失败
@@ -607,7 +592,7 @@ class UMemClient(Client):
         
         - **ChargeType** (str) - Year， Month， Dynamic，Trial
         - **OriginalPrice** (int) - 原价
-        - **Price** (int) - 总价格，单位: 元，保留小数点后两位有效数字
+        - **Price** (int) - 总价格
 
         """
         # build request
@@ -634,17 +619,9 @@ class UMemClient(Client):
         
         **Response**
 
-        - **DataSet** (dict) - 见 **PriceDataSet** 模型定义
-        - **Price** (int) - 扩容差价，单位: 元，保留小数点后两位有效数字(兼容老版本)
+        - **OriginalPrice** (int) - 原价
+        - **Price** (int) - 价格
         
-        **Response Model**
-        
-        **PriceDataSet** 
-        
-        - **CustomPrice** (int) - 用户折后价
-        - **PurchaseValue** (int) - 资源有效期
-        - **TotalPrice** (int) - 升降级资源的价格
-
         """
         # build request
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
