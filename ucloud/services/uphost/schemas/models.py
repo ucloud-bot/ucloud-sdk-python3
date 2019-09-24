@@ -3,6 +3,21 @@
 from ucloud.core.typesystem import schema, fields
 
 
+class PHostIPSetSchema(schema.ResponseSchema):
+    """ PHostIPSet - DescribePHost
+    """
+
+    fields = {
+        "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
+        "IPAddr": fields.Str(required=False, load_from="IPAddr"),
+        "IPId": fields.Str(required=False, load_from="IPId"),
+        "MACAddr": fields.Str(required=False, load_from="MACAddr"),
+        "OperatorName": fields.Str(required=False, load_from="OperatorName"),
+        "SubnetId": fields.Str(required=False, load_from="SubnetId"),
+        "VPCId": fields.Str(required=False, load_from="VPCId"),
+    }
+
+
 class PHostCPUSetSchema(schema.ResponseSchema):
     """ PHostCPUSet - DescribePHost
     """
@@ -28,28 +43,13 @@ class PHostDiskSetSchema(schema.ResponseSchema):
     }
 
 
-class PHostIPSetSchema(schema.ResponseSchema):
-    """ PHostIPSet - DescribePHost
-    """
-
-    fields = {
-        "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
-        "IPAddr": fields.Str(required=False, load_from="IPAddr"),
-        "IPId": fields.Str(required=False, load_from="IPId"),
-        "MACAddr": fields.Str(required=False, load_from="MACAddr"),
-        "OperatorName": fields.Str(required=False, load_from="OperatorName"),
-        "SubnetId": fields.Str(required=False, load_from="SubnetId"),
-        "VPCId": fields.Str(required=False, load_from="VPCId"),
-    }
-
-
 class PHostSetSchema(schema.ResponseSchema):
     """ PHostSet - DescribePHost
     """
 
     fields = {
         "AutoRenew": fields.Str(required=False, load_from="AutoRenew"),
-        "CPUSet": fields.List(PHostCPUSetSchema()),
+        "CPUSet": PHostCPUSetSchema(),
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
         "Cluster": fields.Str(required=False, load_from="Cluster"),
         "Components": fields.Str(required=False, load_from="Components"),
