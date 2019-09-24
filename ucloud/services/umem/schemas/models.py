@@ -48,17 +48,6 @@ class UMemSpaceSetSchema(schema.ResponseSchema):
     }
 
 
-class PriceDataSetSchema(schema.ResponseSchema):
-    """ PriceDataSet - 升降级价格
-    """
-
-    fields = {
-        "CustomPrice": fields.Int(required=False, load_from="CustomPrice"),
-        "PurchaseValue": fields.Int(required=False, load_from="PurchaseValue"),
-        "TotalPrice": fields.Int(required=False, load_from="TotalPrice"),
-    }
-
-
 class UMemcacheGroupSetSchema(schema.ResponseSchema):
     """ UMemcacheGroupSet - DescribeUMemcacheGroup
     """
@@ -133,6 +122,7 @@ class URedisGroupSetSchema(schema.ResponseSchema):
         "Port": fields.Int(required=False, load_from="Port"),
         "Protocol": fields.Str(required=False, load_from="Protocol"),
         "RewriteTime": fields.Int(required=True, load_from="RewriteTime"),
+        "Role": fields.Str(required=True, load_from="Role"),
         "Size": fields.Int(required=False, load_from="Size"),
         "SlaveZone": fields.Str(required=False, load_from="SlaveZone"),
         "State": fields.Str(required=False, load_from="State"),
