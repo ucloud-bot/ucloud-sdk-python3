@@ -66,12 +66,6 @@ class StepFlowClient(Client):
         
         **Response Model**
         
-        **Param** 
-        
-        - **Name** (str) - 参数名称
-        - **Type** (str) - 参数类型
-        - **Value** (str) - 参数值
-
         **ActivityTemplate** 
         
         - **Input** (dict) - Activity的输入
@@ -81,6 +75,12 @@ class StepFlowClient(Client):
         - **RetryTimes** (str) - Activity的重试次数
         - **Timeout** (str) - Activity的超时时间
         - **Type** (str) - Activity的类型
+
+        **Param** 
+        
+        - **Name** (str) - 参数名称
+        - **Type** (str) - 参数类型
+        - **Value** (str) - 参数值
 
         **WorkflowTemplate** 
         
