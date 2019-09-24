@@ -71,6 +71,25 @@ class UnetBandwidthUsageEIPSetSchema(schema.ResponseSchema):
     }
 
 
+class UnetEIPResourceSetSchema(schema.ResponseSchema):
+    """ UnetEIPResourceSet - DescribeEIP
+    """
+
+    fields = {
+        "EIPId": fields.Str(required=False, load_from="EIPId"),
+        "ResourceID": fields.Str(required=False, load_from="ResourceID"),
+        "ResourceName": fields.Str(required=False, load_from="ResourceName"),
+        "ResourceType": fields.Str(required=False, load_from="ResourceType"),
+        "SubResourceId": fields.Str(required=False, load_from="SubResourceId"),
+        "SubResourceName": fields.Str(
+            required=False, load_from="SubResourceName"
+        ),
+        "SubResourceType": fields.Str(
+            required=False, load_from="SubResourceType"
+        ),
+    }
+
+
 class ShareBandwidthSetSchema(schema.ResponseSchema):
     """ ShareBandwidthSet - DescribeEIP
     """
@@ -84,25 +103,6 @@ class ShareBandwidthSetSchema(schema.ResponseSchema):
         ),
         "ShareBandwidthName": fields.Str(
             required=False, load_from="ShareBandwidthName"
-        ),
-    }
-
-
-class UnetEIPResourceSetSchema(schema.ResponseSchema):
-    """ UnetEIPResourceSet - DescribeEIP
-    """
-
-    fields = {
-        "EIPId": fields.Str(required=False, load_from="EIPId"),
-        "ResourceId": fields.Str(required=False, load_from="ResourceId"),
-        "ResourceName": fields.Str(required=False, load_from="ResourceName"),
-        "ResourceType": fields.Str(required=False, load_from="ResourceType"),
-        "SubResourceId": fields.Str(required=False, load_from="SubResourceId"),
-        "SubResourceName": fields.Str(
-            required=False, load_from="SubResourceName"
-        ),
-        "SubResourceType": fields.Str(
-            required=False, load_from="SubResourceType"
         ),
     }
 
@@ -201,6 +201,7 @@ class UnetShareBandwidthSetSchema(schema.ResponseSchema):
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
         "EIPSet": fields.List(EIPSetDataSchema()),
         "ExpireTime": fields.Int(required=False, load_from="ExpireTime"),
+        "IPVersion": fields.Str(required=True, load_from="IPVersion"),
         "Name": fields.Str(required=False, load_from="Name"),
         "PostPayStartTime": fields.Int(
             required=False, load_from="PostPayStartTime"
@@ -222,7 +223,9 @@ class VIPDetailSetSchema(schema.ResponseSchema):
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
         "Name": fields.Str(required=False, load_from="Name"),
         "RealIp": fields.Str(required=False, load_from="RealIp"),
+        "Remark": fields.Str(required=False, load_from="Remark"),
         "SubnetId": fields.Str(required=False, load_from="SubnetId"),
+        "Tag": fields.Str(required=False, load_from="Tag"),
         "VIP": fields.Str(required=False, load_from="VIP"),
         "VIPId": fields.Str(required=False, load_from="VIPId"),
         "VPCId": fields.Str(required=False, load_from="VPCId"),
@@ -246,6 +249,9 @@ class EIPPriceDetailSetSchema(schema.ResponseSchema):
 
     fields = {
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
+        "OriginalPrice": fields.Float(
+            required=False, load_from="OriginalPrice"
+        ),
         "Price": fields.Float(required=False, load_from="Price"),
         "PurchaseValue": fields.Int(required=False, load_from="PurchaseValue"),
     }

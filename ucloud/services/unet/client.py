@@ -2,6 +2,7 @@
 
 import typing
 
+
 from ucloud.core.client import Client
 from ucloud.services.unet.schemas import apis
 
@@ -24,7 +25,7 @@ class UNetClient(Client):
         - **ChargeType** (str) - 付费方式, 枚举值为: Year, 按年付费; Month, 按月付费; Dynamic, 按需付费(需开启权限); Trial, 试用(需开启权限) 默认为按月付费
         - **CouponId** (str) - 代金券ID, 默认不使用
         - **Name** (str) - 弹性IP的名称, 默认为 "EIP"
-        - **PayMode** (str) - 弹性IP的计费模式. 枚举值: "Traffic", 流量计费; "Bandwidth", 带宽计费; "ShareBandwidth",共享带宽模式. 默认为 "Bandwidth".
+        - **PayMode** (str) - 弹性IP的计费模式. 枚举值: "Traffic", 流量计费; "Bandwidth", 带宽计费; "ShareBandwidth",共享带宽模式. 默认为 "Bandwidth".“PostAccurateBandwidth”：带宽后付费模式
         - **Quantity** (int) - 购买时长, 默认: 1
         - **Remark** (str) - 弹性IP的备注, 默认为空
         - **ShareBandwidthId** (str) - 绑定的共享带宽Id，仅当PayMode为ShareBandwidth时有效
@@ -70,7 +71,7 @@ class UNetClient(Client):
         - **ChargeType** (str) - (Required) 付费方式:Year 按年,Month 按月,Dynamic 按时;
         - **Name** (str) - (Required) 共享带宽名字
         - **ShareBandwidth** (int) - (Required) 共享带宽值
-        - **BwType** (str) - 共享带宽类型，ipv4或者ipv6，不传默认ipv4
+        - **IPVersion** (str) - 共享带宽类型，IPv4或者IPv6，不传默认IPv4
         - **Quantity** (int) - 购买时长
         - **ShareBandwidthGuarantee** (int) - 共享带宽保底值(后付费)
         
@@ -143,6 +144,7 @@ class UNetClient(Client):
         - **Region** (str) - (Config) 地域。
         - **EIPIds** (list) - (Required) 要加入共享带宽的EIP的资源Id
         - **ShareBandwidthId** (str) - (Required) 共享带宽ID
+        - **IPVersion** (str) - 共享带宽类型，IPv4或者IPv6，不传默认IPv4
         
         **Response**
 
@@ -220,7 +222,7 @@ class UNetClient(Client):
         - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写
         - **Region** (str) - (Config) 地域
         - **Name** (str) - (Required) 防火墙名称
-        - **Rule** (list) - (Required) 防火墙规则，例如：TCP|22|192.168.1.1/22|DROP|LOW|禁用22端口，第一个参数代表协议：第二个参数代表端口号，第三个参数为ip，第四个参数为ACCEPT（接受）和DROP（拒绝），第五个参数优先级：HIGH（高），MEDIUM（中），LOW（低），第六个参数为该条规则的自定义备注
+        - **Rule** (list) - (Required) 防火墙规则，例如：TCP|22|192.168.1.1/22|DROP|LOW|禁用22端口，第一个参数代表协议：第二个参数代表端口号，第三个参数为ip，第四个参数为ACCEPT（接受）和DROP（拒绝），第五个参数优先级：HIGH（高），MEDIUM（中），LOW（低），第六个参数为该条规则的自定义备注,bj1不支持添加备注
         - **Remark** (str) - 防火墙描述，默认为空
         - **Tag** (str) - 防火墙业务组，默认为Default
         
@@ -396,7 +398,7 @@ class UNetClient(Client):
         **UnetEIPResourceSet** 
         
         - **EIPId** (str) - 弹性IP的资源ID
-        - **ResourceId** (str) - 已绑定资源的资源ID
+        - **ResourceID** (str) - 已绑定资源的资源ID
         - **ResourceName** (str) - 已绑定的资源名称
         - **ResourceType** (str) - 已绑定的资源类型, 枚举值为: uhost, 云主机；natgw：NAT网关；ulb：负载均衡器；upm: 物理机; hadoophost: 大数据集群;fortresshost：堡垒机；udockhost：容器；udhost：私有专区主机；vpngw：IPSec VPN；ucdr：云灾备；dbaudit：数据库审计，uni：虚拟网卡。
         - **SubResourceId** (str) - 资源绑定的虚拟网卡的ID
@@ -559,6 +561,7 @@ class UNetClient(Client):
         - **CreateTime** (int) - 创建时间, 格式为Unix Timestamp
         - **EIPSet** (list) - 见 **EIPSetData** 模型定义
         - **ExpireTime** (int) - 过期时间, 格式为Unix Timestamp
+        - **IPVersion** (str) - 共享带宽类型
         - **Name** (str) - 共享带宽名称
         - **PostPayStartTime** (int) - 共享带宽后付费开始计费时间(后付费)
         - **ShareBandwidth** (int) - 共享带宽值(预付费)/共享带宽峰值(后付费), 单位Mbps
@@ -583,6 +586,7 @@ class UNetClient(Client):
         - **BusinessId** (str) - 业务组
         - **SubnetId** (str) - 子网id，不指定则获取VPCId下的所有vip
         - **Tag** (str) - 业务组名称, 默认为 Default
+        - **VIPId** (str) - VIP ID
         - **VPCId** (str) - vpc的id,指定SubnetId时必填
         - **Zone** (str) - 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         
@@ -597,9 +601,11 @@ class UNetClient(Client):
         **VIPDetailSet** 
         
         - **CreateTime** (int) - 创建时间
-        - **Name** (str) - 
+        - **Name** (str) - VIP名称
         - **RealIp** (str) - 真实主机ip
+        - **Remark** (str) - VIP备注
         - **SubnetId** (str) - 子网id
+        - **Tag** (str) - VIP所属业务组
         - **VIP** (str) - 虚拟ip
         - **VIPId** (str) - 虚拟ip id
         - **VPCId** (str) - VPC id
@@ -626,6 +632,7 @@ class UNetClient(Client):
         - **Bandwidth** (int) - (Required) 移出共享带宽后，EIP的外网带宽, 单位为Mbps. 各地域带宽范围如下：  流量计费[1-200],带宽计费[1-800]
         - **ShareBandwidthId** (str) - (Required) 共享带宽ID
         - **EIPIds** (list) - EIP的资源Id；默认移出该共享带宽下所有的EIP
+        - **IPVersion** (str) - IPv6或者IPv4，不传默认IPv4
         - **PayMode** (str) - 移出共享带宽后，EIP的计费模式. 枚举值: "Traffic", 流量计费; "Bandwidth", 带宽计费;  默认为 "Bandwidth".
         
         **Response**
@@ -697,7 +704,8 @@ class UNetClient(Client):
         **EIPPriceDetailSet** 
         
         - **ChargeType** (str) - 弹性IP付费方式
-        - **Price** (float) - 弹性IP价格, 单位"元"
+        - **OriginalPrice** (float) - 弹性IP的原价，单位“元”
+        - **Price** (float) - 购买弹性IP的实际价格, 单位"元"
         - **PurchaseValue** (int) - 资源有效期, 以Unix Timestamp表示
 
         """
@@ -723,7 +731,8 @@ class UNetClient(Client):
         
         **Response**
 
-        - **Price** (float) - 调整带宽后的EIP价格, 单位为"元", 如需退费此处为负值
+        - **OriginalPrice** (float) - EIP带宽升降级的原价 单位为"元", 如需退费此处为负值
+        - **Price** (float) - EIP带宽升降级的实际价格, 单位为"元", 如需退费此处为负值
         
         """
         # build request
@@ -910,7 +919,7 @@ class UNetClient(Client):
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **Bandwidth** (int) - (Required) 调整的目标带宽值, 单位Mbps. 各地域的带宽值范围如下: 流量计费[1-200],其余情况[1-800]
         - **EIPId** (str) - (Required) 弹性IP的资源Id
-        - **PayMode** (str) - (Required) 计费模式. 枚举值："Traffic", 流量计费模式; "Bandwidth", 带宽计费模式
+        - **PayMode** (str) - (Required) 计费模式. 枚举值："Traffic", 流量计费模式; "Bandwidth", 带宽计费模式；“PostAccurateBandwidth”，带宽后付费模式；
         
         **Response**
 

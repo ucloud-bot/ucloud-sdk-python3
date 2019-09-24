@@ -101,7 +101,7 @@ class UPHostClient(Client):
         **PHostSet** 
         
         - **AutoRenew** (str) - 自动续费
-        - **CPUSet** (list) - 见 **PHostCPUSet** 模型定义
+        - **CPUSet** (dict) - 见 **PHostCPUSet** 模型定义
         - **ChargeType** (str) - 计费模式，枚举值为： Year，按年付费； Month，按月付费； Dynamic，按需付费（需开启权限）； Trial，试用（需开启权限）默认为月付
         - **Cluster** (str) - 网络环境。枚举值：千兆：1G ，万兆：10G
         - **Components** (str) - 组件信息（暂不支持）
