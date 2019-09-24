@@ -108,19 +108,6 @@ class ULBVServerSetSchema(schema.ResponseSchema):
     }
 
 
-class ULBIPSetSchema(schema.ResponseSchema):
-    """ ULBIPSet - DescribeULB
-    """
-
-    fields = {
-        "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
-        "BandwidthType": fields.Int(required=False, load_from="BandwidthType"),
-        "EIP": fields.Str(required=False, load_from="EIP"),
-        "EIPId": fields.Str(required=False, load_from="EIPId"),
-        "OperatorName": fields.Str(required=False, load_from="OperatorName"),
-    }
-
-
 class ULBSetSchema(schema.ResponseSchema):
     """ ULBSet - DescribeULB
     """

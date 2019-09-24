@@ -8,19 +8,6 @@ class PHostDiskSetSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "Count": fields.Int(required=False, load_from="Count"),
-        "IOCap": fields.Int(required=False, load_from="IOCap"),
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Space": fields.Int(required=False, load_from="Space"),
-        "Type": fields.Str(required=False, load_from="Type"),
-    }
-
-
-class PHostIPSetSchema(schema.ResponseSchema):
-    """ PHostIPSet - DescribePHost
-    """
-
-    fields = {
         "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
         "IPAddr": fields.Str(required=False, load_from="IPAddr"),
         "IPId": fields.Str(required=False, load_from="IPId"),
