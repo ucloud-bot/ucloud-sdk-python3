@@ -15,19 +15,6 @@ class PHostCPUSetSchema(schema.ResponseSchema):
     }
 
 
-class PHostDiskSetSchema(schema.ResponseSchema):
-    """ PHostDiskSet - GetPHostTypeInfo
-    """
-
-    fields = {
-        "Count": fields.Int(required=False, load_from="Count"),
-        "IOCap": fields.Int(required=False, load_from="IOCap"),
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Space": fields.Int(required=False, load_from="Space"),
-        "Type": fields.Str(required=False, load_from="Type"),
-    }
-
-
 class PHostIPSetSchema(schema.ResponseSchema):
     """ PHostIPSet - DescribePHost
     """
@@ -43,13 +30,26 @@ class PHostIPSetSchema(schema.ResponseSchema):
     }
 
 
+class PHostDiskSetSchema(schema.ResponseSchema):
+    """ PHostDiskSet - GetPHostTypeInfo
+    """
+
+    fields = {
+        "Count": fields.Int(required=False, load_from="Count"),
+        "IOCap": fields.Int(required=False, load_from="IOCap"),
+        "Name": fields.Str(required=False, load_from="Name"),
+        "Space": fields.Int(required=False, load_from="Space"),
+        "Type": fields.Str(required=False, load_from="Type"),
+    }
+
+
 class PHostSetSchema(schema.ResponseSchema):
     """ PHostSet - DescribePHost
     """
 
     fields = {
         "AutoRenew": fields.Str(required=False, load_from="AutoRenew"),
-        "CPUSet": fields.List(PHostCPUSetSchema()),
+        "CPUSet": PHostCPUSetSchema(),
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
         "Cluster": fields.Str(required=False, load_from="Cluster"),
         "Components": fields.Str(required=False, load_from="Components"),
