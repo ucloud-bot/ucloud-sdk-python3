@@ -48,6 +48,7 @@ class UDiskPriceDataSetSchema(schema.ResponseSchema):
     fields = {
         "ChargeName": fields.Str(required=False, load_from="ChargeName"),
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
+        "ListPrice": fields.Int(required=False, load_from="ListPrice"),
         "OriginalPrice": fields.Int(required=False, load_from="OriginalPrice"),
         "Price": fields.Int(required=False, load_from="Price"),
     }
