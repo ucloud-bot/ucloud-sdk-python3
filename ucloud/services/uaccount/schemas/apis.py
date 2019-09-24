@@ -142,7 +142,7 @@ class TerminateProjectRequestSchema(schema.RequestSchema):
     """ TerminateProject - 删除项目
     """
 
-    fields = {"ProjectId": fields.Str(required=False, dump_to="ProjectId")}
+    fields = {"ProjectId": fields.Str(required=True, dump_to="ProjectId")}
 
 
 class TerminateProjectResponseSchema(schema.ResponseSchema):

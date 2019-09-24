@@ -22,7 +22,7 @@ class UAccountClient(Client):
 
         **Request**
 
-        - **ProjectName** (str) - (Required) 项目名称
+        - **ProjectName** (str) - (Required) 项目名称，不得与现有项目重名
         
         **Response**
 
@@ -47,7 +47,7 @@ class UAccountClient(Client):
 
         **Request**
 
-        - **IsFinance** (str) - 是否是财务账号
+        - **IsFinance** (str) - 是否是财务账号（Yes：是，No：否）
         
         **Response**
 
@@ -61,11 +61,11 @@ class UAccountClient(Client):
         - **CreateTime** (int) - 创建时间(Unix时间戳)
         - **IsDefault** (bool) - 是否为默认项目
         - **MemberCount** (int) - 项目下成员数量
-        - **ParentId** (str) - 父项目ID
-        - **ParentName** (str) - 父项目名称
+        - **ParentId** (str) - 父项目ID（已废弃）
+        - **ParentName** (str) - 父项目名称（已废弃）
         - **ProjectId** (str) - 项目ID
         - **ProjectName** (str) - 项目名称
-        - **ResourceCount** (int) - 项目下资源数量
+        - **ResourceCount** (int) - 项目下资源数量（已废弃，不建议使用）
 
         """
         # build request
@@ -122,13 +122,15 @@ class UAccountClient(Client):
         
         **UserInfo** 
         
-        - **Admin** (int) - 是否超级管理员 0:否 1:是
+        - **Admin** (int) - 是否超级管理员（0：否  1：是）
         - **Administrator** (str) - 管理员
         - **AuthState** (str) - 实名认证状态
         - **City** (str) - 城市
         - **CompanyName** (str) - 公司名称
-        - **Finance** (int) - 是否有财务权限 0:否 1:是
+        - **Finance** (int) - 是否有财务权限（0：否  1：是）
         - **IndustryType** (int) - 所属行业
+        - **MandatoryTOTP** (str) - 是否强制开启TOTP（0：否  1：是）
+        - **PasswordPolicyDate** (str) - 是否开启定期修改密码（0：否  1：是）
         - **PhonePrefix** (str) - 国际号码前缀
         - **Province** (str) - 省份
         - **UserAddress** (str) - 公司地址
@@ -177,7 +179,7 @@ class UAccountClient(Client):
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID，不填写为默认项目，子帐号必须填写。
+        - **ProjectId** (str) - (Config) 项目ID，请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 的描述。
         
         **Response**
 
