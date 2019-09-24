@@ -1005,6 +1005,9 @@ class DescribeUDBTypeRequestSchema(schema.RequestSchema):
 
     fields = {
         "BackupZone": fields.Str(required=False, dump_to="BackupZone"),
+        "CompatibleWithDBType": fields.Str(
+            required=False, dump_to="CompatibleWithDBType"
+        ),
         "DBClusterType": fields.Str(required=False, dump_to="DBClusterType"),
         "DiskType": fields.Str(required=False, dump_to="DiskType"),
         "InstanceMode": fields.Str(required=False, dump_to="InstanceMode"),
