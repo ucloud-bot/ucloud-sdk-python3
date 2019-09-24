@@ -171,14 +171,18 @@ class CreateULBRequestSchema(schema.RequestSchema):
     fields = {
         "BusinessId": fields.Str(required=False, dump_to="BusinessId"),
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
+        "FirewallId": fields.Str(required=False, dump_to="FirewallId"),
         "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "InnerMode": fields.Str(required=False, dump_to="InnerMode"),
         "ListenType": fields.Str(required=False, dump_to="ListenType"),
         "OuterMode": fields.Str(required=False, dump_to="OuterMode"),
         "PrivateIp": fields.Str(required=False, dump_to="PrivateIp"),
-        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "Remark": fields.Str(required=False, dump_to="Remark"),
+        "ShareBandwidthId": fields.Str(
+            required=False, dump_to="ShareBandwidthId"
+        ),
         "SubnetId": fields.Str(required=False, dump_to="SubnetId"),
         "Tag": fields.Str(required=False, dump_to="Tag"),
         "ULBName": fields.Str(required=False, dump_to="ULBName"),
@@ -190,7 +194,10 @@ class CreateULBResponseSchema(schema.ResponseSchema):
     """ CreateULB - 创建负载均衡实例，可以选择内网或者外网
     """
 
-    fields = {"ULBId": fields.Str(required=False, load_from="ULBId")}
+    fields = {
+        "IPv6AddressId": fields.Str(required=False, load_from="IPv6AddressId"),
+        "ULBId": fields.Str(required=False, load_from="ULBId"),
+    }
 
 
 """
@@ -297,7 +304,7 @@ class DeleteULBRequestSchema(schema.RequestSchema):
     """
 
     fields = {
-        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "ReleaseEip": fields.Bool(required=False, dump_to="ReleaseEip"),
         "ULBId": fields.Str(required=True, dump_to="ULBId"),
@@ -384,7 +391,7 @@ class DescribeULBRequestSchema(schema.RequestSchema):
         "BusinessId": fields.Str(required=False, dump_to="BusinessId"),
         "Limit": fields.Int(required=False, dump_to="Limit"),
         "Offset": fields.Int(required=False, dump_to="Offset"),
-        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "SubnetId": fields.Str(required=False, dump_to="SubnetId"),
         "ULBId": fields.Str(required=False, dump_to="ULBId"),
@@ -601,7 +608,6 @@ class UpdateVServerAttributeRequestSchema(schema.RequestSchema):
             required=False, dump_to="PersistenceType"
         ),
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
-        "Protocol": fields.Str(required=False, dump_to="Protocol"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "ULBId": fields.Str(required=True, dump_to="ULBId"),
         "VServerId": fields.Str(required=True, dump_to="VServerId"),
