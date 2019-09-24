@@ -192,6 +192,7 @@ class CreateUHostInstanceRequestSchema(schema.RequestSchema):
             required=False, dump_to="TimemachineFeature"
         ),
         "UHostType": fields.Str(required=False, dump_to="UHostType"),
+        "UserData": fields.Str(required=False, dump_to="UserData"),
         "UserDataScript": fields.Str(required=False, dump_to="UserDataScript"),
         "VPCId": fields.Str(required=False, dump_to="VPCId"),
         "Zone": fields.Str(required=True, dump_to="Zone"),
@@ -347,7 +348,7 @@ class GetUHostInstancePriceRequestSchema(schema.RequestSchema):
         "Disks": fields.List(GetUHostInstancePriceParamDisksSchema()),
         "GPU": fields.Int(required=False, dump_to="GPU"),
         "GpuType": fields.Str(required=False, dump_to="GpuType"),
-        "ImageId": fields.Str(required=True, dump_to="ImageId"),
+        "ImageId": fields.Str(required=False, dump_to="ImageId"),
         "LifeCycle": fields.Int(required=False, dump_to="LifeCycle"),
         "MachineType": fields.Str(required=False, dump_to="MachineType"),
         "Memory": fields.Int(required=True, dump_to="Memory"),
