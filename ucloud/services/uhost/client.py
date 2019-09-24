@@ -153,6 +153,11 @@ class UHostClient(Client):
         - **PayMode** (str) - 弹性IP的计费模式. 枚举值: "Traffic", 流量计费; "Bandwidth", 带宽计费; "ShareBandwidth",共享带宽模式. "Free":免费带宽模式.默认为 "Bandwidth".
         - **ShareBandwidthId** (str) - 绑定的共享带宽Id，仅当PayMode为ShareBandwidth时有效
 
+        **CreateUHostInstanceParamNetworkInterface** 
+        
+        - **EIP** (dict) - 见 **CreateUHostInstanceParamNetworkInterfaceEIP** 模型定义
+        - **IP** (dict) - 见 **CreateUHostInstanceParamNetworkInterfaceIP** 模型定义
+
         **CreateUHostInstanceParamDisks** 
         
         - **BackupType** (str) - 磁盘备份方案。枚举值：\\ > NONE，无备份 \\ > DATAARK，数据方舟 \\ 当前磁盘支持的备份模式参考  `磁盘类型 <https://docs.ucloud.cn/api/uhost-api/disk_type>`_ 

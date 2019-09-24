@@ -18,16 +18,15 @@ class PHostIPSetSchema(schema.ResponseSchema):
     }
 
 
-class PHostDiskSetSchema(schema.ResponseSchema):
-    """ PHostDiskSet - GetPHostTypeInfo
+class PHostCPUSetSchema(schema.ResponseSchema):
+    """ PHostCPUSet - DescribePHost
     """
 
     fields = {
+        "CoreCount": fields.Int(required=False, load_from="CoreCount"),
         "Count": fields.Int(required=False, load_from="Count"),
-        "IOCap": fields.Int(required=False, load_from="IOCap"),
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Space": fields.Int(required=False, load_from="Space"),
-        "Type": fields.Str(required=False, load_from="Type"),
+        "Frequence": fields.Float(required=False, load_from="Frequence"),
+        "Model": fields.Str(required=False, load_from="Model"),
     }
 
 
