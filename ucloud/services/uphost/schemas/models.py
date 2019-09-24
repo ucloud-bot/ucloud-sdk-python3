@@ -28,21 +28,6 @@ class PHostCPUSetSchema(schema.ResponseSchema):
     }
 
 
-class PHostIPSetSchema(schema.ResponseSchema):
-    """ PHostIPSet - DescribePHost
-    """
-
-    fields = {
-        "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
-        "IPAddr": fields.Str(required=False, load_from="IPAddr"),
-        "IPId": fields.Str(required=False, load_from="IPId"),
-        "MACAddr": fields.Str(required=False, load_from="MACAddr"),
-        "OperatorName": fields.Str(required=False, load_from="OperatorName"),
-        "SubnetId": fields.Str(required=False, load_from="SubnetId"),
-        "VPCId": fields.Str(required=False, load_from="VPCId"),
-    }
-
-
 class PHostSetSchema(schema.ResponseSchema):
     """ PHostSet - DescribePHost
     """
