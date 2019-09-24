@@ -3,18 +3,6 @@
 from ucloud.core.typesystem import schema, fields
 
 
-class PHostCPUSetSchema(schema.ResponseSchema):
-    """ PHostCPUSet - DescribePHost
-    """
-
-    fields = {
-        "CoreCount": fields.Int(required=False, load_from="CoreCount"),
-        "Count": fields.Int(required=False, load_from="Count"),
-        "Frequence": fields.Float(required=False, load_from="Frequence"),
-        "Model": fields.Str(required=False, load_from="Model"),
-    }
-
-
 class PHostIPSetSchema(schema.ResponseSchema):
     """ PHostIPSet - DescribePHost
     """
@@ -27,6 +15,30 @@ class PHostIPSetSchema(schema.ResponseSchema):
         "OperatorName": fields.Str(required=False, load_from="OperatorName"),
         "SubnetId": fields.Str(required=False, load_from="SubnetId"),
         "VPCId": fields.Str(required=False, load_from="VPCId"),
+    }
+
+
+class PHostIPSetSchema(schema.ResponseSchema):
+    """ PHostIPSet - DescribePHost
+    """
+
+    fields = {
+        "CoreCount": fields.Int(required=False, load_from="CoreCount"),
+        "Count": fields.Int(required=False, load_from="Count"),
+        "Frequence": fields.Float(required=False, load_from="Frequence"),
+        "Model": fields.Str(required=False, load_from="Model"),
+    }
+
+
+class PHostCPUSetSchema(schema.ResponseSchema):
+    """ PHostCPUSet - DescribePHost
+    """
+
+    fields = {
+        "CoreCount": fields.Int(required=False, load_from="CoreCount"),
+        "Count": fields.Int(required=False, load_from="Count"),
+        "Frequence": fields.Float(required=False, load_from="Frequence"),
+        "Model": fields.Str(required=False, load_from="Model"),
     }
 
 
