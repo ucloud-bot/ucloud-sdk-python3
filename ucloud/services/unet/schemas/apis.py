@@ -62,8 +62,8 @@ class AllocateShareBandwidthRequestSchema(schema.RequestSchema):
     """
 
     fields = {
-        "BwType": fields.Str(required=False, dump_to="BwType"),
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
+        "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "Name": fields.Str(required=True, dump_to="Name"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
@@ -139,6 +139,7 @@ class AssociateEIPWithShareBandwidthRequestSchema(schema.RequestSchema):
 
     fields = {
         "EIPIds": fields.List(fields.Str()),
+        "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "ShareBandwidthId": fields.Str(
@@ -507,10 +508,11 @@ class DescribeVIPRequestSchema(schema.RequestSchema):
 
     fields = {
         "BusinessId": fields.Str(required=False, dump_to="BusinessId"),
-        "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
+        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "SubnetId": fields.Str(required=False, dump_to="SubnetId"),
         "Tag": fields.Str(required=False, dump_to="Tag"),
+        "VIPId": fields.Str(required=False, dump_to="VIPId"),
         "VPCId": fields.Str(required=False, dump_to="VPCId"),
         "Zone": fields.Str(required=False, dump_to="Zone"),
     }
@@ -545,6 +547,7 @@ class DisassociateEIPWithShareBandwidthRequestSchema(schema.RequestSchema):
     fields = {
         "Bandwidth": fields.Int(required=True, dump_to="Bandwidth"),
         "EIPIds": fields.List(fields.Str()),
+        "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "PayMode": fields.Str(required=False, dump_to="PayMode"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -648,7 +651,12 @@ class GetEIPUpgradePriceResponseSchema(schema.ResponseSchema):
     """ GetEIPUpgradePrice - 获取弹性IP带宽改动价格
     """
 
-    fields = {"Price": fields.Float(required=False, load_from="Price")}
+    fields = {
+        "OriginalPrice": fields.Float(
+            required=False, load_from="OriginalPrice"
+        ),
+        "Price": fields.Float(required=False, load_from="Price"),
+    }
 
 
 """

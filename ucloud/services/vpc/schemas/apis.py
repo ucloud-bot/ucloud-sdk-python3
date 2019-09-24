@@ -457,7 +457,8 @@ class DescribeVPCIntercomRequestSchema(schema.RequestSchema):
     fields = {
         "DstProjectId": fields.Str(required=False, dump_to="DstProjectId"),
         "DstRegion": fields.Str(required=False, dump_to="DstRegion"),
-        "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
+        "HasHybrid": fields.Int(required=False, dump_to="HasHybrid"),
+        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "VPCId": fields.Str(required=True, dump_to="VPCId"),
     }
@@ -578,4 +579,4 @@ class UpdateVPCNetworkResponseSchema(schema.ResponseSchema):
     """ UpdateVPCNetwork - 更新VPC网段
     """
 
-    fields = {"Message": fields.Str(required=True, load_from="Message")}
+    fields = {}

@@ -29,7 +29,7 @@ class RouteTableInfoSchema(schema.ResponseSchema):
         "RouteTableType": fields.Int(
             required=False, load_from="RouteTableType"
         ),
-        "SubnetCount": fields.Str(required=False, load_from="SubnetCount"),
+        "SubnetCount": fields.Int(required=False, load_from="SubnetCount"),
         "Tag": fields.Str(required=False, load_from="Tag"),
         "VPCId": fields.Str(required=False, load_from="VPCId"),
         "VPCName": fields.Str(required=False, load_from="VPCName"),
@@ -45,7 +45,7 @@ class SubnetInfoSchema(schema.ResponseSchema):
         "Gateway": fields.Str(required=False, load_from="Gateway"),
         "HasNATGW": fields.Bool(required=False, load_from="HasNATGW"),
         "IPv6Network": fields.Str(required=False, load_from="IPv6Network"),
-        "Netmask": fields.Int(required=False, load_from="Netmask"),
+        "Netmask": fields.Str(required=False, load_from="Netmask"),
         "OperatorName": fields.Str(required=False, load_from="OperatorName"),
         "Remark": fields.Str(required=False, load_from="Remark"),
         "RouteTableId": fields.Str(required=False, load_from="RouteTableId"),
