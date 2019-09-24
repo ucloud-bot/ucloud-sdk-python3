@@ -879,7 +879,7 @@ class UDBClient(Client):
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **ChargeType** (str) - Year，按年付费； Month，按月付费 Dynamic，按需付费（需开启权限) Trial，试用（需开启权限）默认为月付
         - **Count** (int) - 购买DB实例数量,最大数量为10台, 默认为1台
-        - **InstanceMode** (str) - 实例的部署类型。可选值为：Normal: 普通单点实例，Slave: 从库实例,HA: 高可用部署实例，默认是Normal
+        - **InstanceMode** (str) - 实例的部署类型。可选值为：Normal: 普通单点实例，Slave: 从库实例，HA: 高可用部署实例，默认是Normal
         - **Quantity** (int) - DB购买多少个"计费时间单位"，默认值为1。比如：买2个月，Quantity就是2。如果计费单位是“按月”，并且Quantity为0，表示“购买到月底”
         - **SSDType** (str) - SSD类型，可选值为"SATA"、"PCI-E"，如果UseSSD为true ，则必填
         - **UseSSD** (str) - 是否使用SSD，只能填true或false，默认为false
@@ -1095,6 +1095,7 @@ class UDBClient(Client):
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **Zone** (str) - (Required) 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **BackupZone** (str) - 跨可用区高可用DB的备库所在区域，仅当该可用区支持跨可用区高可用时填入。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
+        - **CompatibleWithDBType** (str) - 返回从备份创建实例时，该版本号所支持的备份创建版本。如果没传，则表示不是从备份创建。
         - **DBClusterType** (str) - DB实例类型，如mysql，sqlserver，mongo，postgresql
         - **DiskType** (str) - 返回支持某种磁盘类型的DB类型。如果没传，则表示任何磁盘类型均可。
         - **InstanceMode** (str) - 返回支持某种实例类型的DB类型。如果没传，则表示任何实例类型均可。normal:单点,ha:高可用,sharded_cluster:分片集群

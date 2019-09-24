@@ -1,0 +1,300 @@
+SDK Auto Release
+
+FEATURE:
+
+- Add `DeleteUDisk`
+- Add `RestoreUDisk`
+- Add `DeleteFirewall`
+- Add `DeleteVServer`
+- Affect 
+- Affect 
+- Add `ModifyUHostInstanceRemark`
+- Affect 
+- Add `BackupUDBInstanceErrorLog`
+- Add `StartUDBInstance`
+- Add `DescribeSSL`
+- Affect 
+- Add `DescribeUDBInstanceUpgradePrice`
+- Add `ModifyGlobalSSHPort`
+- Add `GetEIPPrice`
+- Add `CreateCustomImage`
+- Add `UpdateUSMSTemplate`
+- Add `PoweroffUHostInstance`
+- Add `DescribeUDiskPrice`
+- Add `ResizeUHostInstance`
+- Add `UpdateUSMSSignature`
+- Add `CreateFirewall`
+- Update 
+- Affect 
+- Affect 
+- Add `ResizeUDBInstance`
+- Add `DescribeUMemSpace`
+- Add `CreateUDBRouteInstance`
+- Affect 
+- Add `DeleteUMemcacheGroup`
+- Add `ReleaseBackend`
+- Add `DescribeUDBLogBackupURL`
+- Add `DescribeUDisk`
+- Update 
+- Update 
+- Update 
+- Add `CreateUMemcacheGroup`
+- Add `CreateVServer`
+- Add `StopUDBInstance`
+- Update 
+- Affect 
+- Add `ModifyGlobalSSHRemark`
+- Add `ResetUHostInstancePassword`
+- Update 
+- Add `QueryUSMSSignature`
+- Affect 
+- Update 
+- Update 
+- Add `PoweroffPHost`
+- Affect 
+- Add `ModifyURedisGroupName`
+- Add `ReleaseEIP`
+- Add `RebootPHost`
+- Add `CloneUDiskSnapshot`
+- Add `RebootUHostInstance`
+- Add `DescribeURedisPrice`
+- Update 
+- Affect 
+- Add `PromoteUDBSlave`
+- Add `DeleteUDBInstance`
+- Affect 
+- Add `CreateUDBReplicationInstance`
+- Add `UpdateUDBInstanceSlaveBackupSwitch`
+- Add `CreateUDBParamGroup`
+- Affect 
+- Add `DeleteUDBBackup`
+- Add `CreateSubnet`
+- Add `EditUDBBackupBlacklist`
+- Add `ModifyUMemSpaceName`
+- Add `SetUDiskUDataArkMode`
+- Add `PromoteUDBInstanceToHA`
+- Add `CreateBandwidthPackage`
+- Update 
+- Affect 
+- Add `DescribeVPCIntercom`
+- Affect 
+- Add `CreateSSL`
+- Add `DescribeGlobalSSHInstance`
+- Add `DescribeUMemUpgradePrice`
+- Add `DescribeVIP`
+- Update 
+- Add `CheckUDBInstanceToHAAllowance`
+- Add `DescribeUDPN`
+- Add `ResizeURedisGroup`
+- Add `ResizeUDisk`
+- Add `BackupUDBInstance`
+- Add `DeleteUSMSTemplate`
+- Add `ResizeUDredisSpace`
+- Add `StartPHost`
+- Add `SwitchUDBInstanceToHA`
+- Add `DeletePolicy`
+- Add `CloneUDisk`
+- Add `StopUHostInstance`
+- Add `ReleaseVIP`
+- Add `UpdateULBAttribute`
+- Update 
+- Add `UpdateVPCNetwork`
+- Add `ResizeAttachedDisk`
+- Add `CreateUDBSlave`
+- Add `DeleteULB`
+- Affect 
+- Add `UpdateEIPAttribute`
+- Add `DescribeUMemPrice`
+- Affect 
+- Update 
+- Add `RestartUMemcacheGroup`
+- Add `RestartUDBInstance`
+- Add `ReleaseUDPN`
+- Add `DescribeUMemcacheUpgradePrice`
+- Add `DescribeUDBParamGroup`
+- Add `CreateSFWorkflowFromTemplate`
+- Affect 
+- Add `DescribeUMemcacheGroup`
+- Add `DeleteUDBParamGroup`
+- Add `DescribeFirewall`
+- Add `SendUSMSMessage`
+- Add `GrantFirewall`
+- Add `DeleteSubnet`
+- Affect 
+- Update 
+- Affect 
+- Add `DescribeUDBInstancePrice`
+- Add `DescribeSubnet`
+- Add `CreateURedisGroup`
+- Affect 
+- Add `DescribePHostTags`
+- Add `DescribeURedisBackupURL`
+- Add `CreateVPCIntercom`
+- Add `DescribeGlobalSSHArea`
+- Add `UpdatePolicy`
+- Add `TerminateUHostInstance`
+- Add `GetUDPNPrice`
+- Affect 
+- Update 
+- Add `DeleteUSMSSignature`
+- Add `DescribeShareBandwidth`
+- Add `CreateUHostInstance`
+- Add `RenameUDisk`
+- Add `DescribeUDiskUpgradePrice`
+- Add `DescribeUMemcachePrice`
+- Add `DeleteGlobalSSHInstance`
+- Add `DeleteBandwidthPackage`
+- Add `TerminateCustomImage`
+- Add `DescribeUDBBackupBlacklist`
+- Add `DescribeVPC`
+- Add `BindSSL`
+- Add `DescribeBandwidthPackage`
+- Add `ClearUDBLog`
+- Add `DescribeUDBBinlogBackupURL`
+- Add `TerminateProject`
+- Add `UnbindSSL`
+- Add `GetPHostPrice`
+- Affect 
+- Affect 
+- Add `GetUMemSpaceState`
+- Add `DescribeURedisUpgradePrice`
+- Update 
+- Add `UpdateFirewall`
+- Add `UpdateBackendAttribute`
+- Add `SetEIPPayMode`
+- Update 
+- Add `DescribeBandwidthUsage`
+- Add `DescribeUDBInstanceBackupURL`
+- Add `CreateUDisk`
+- Add `ModifyUHostInstanceName`
+- Update 
+- Add `GetUserInfo`
+- Add `ReleaseShareBandwidth`
+- Update 
+- Update 
+- Add `UpdateFirewallAttribute`
+- Add `GetSFWorkflowTemplate`
+- Update 
+- Add `DescribeEIP`
+- Add `ReinstallUHostInstance`
+- Add `ModifyUDBInstancePassword`
+- Add `GetUDPNUpgradePrice`
+- Add `CreatePolicy`
+- Add `StartUHostInstance`
+- Add `GetProjectList`
+- Add `DescribeUDBLogPackage`
+- Add `CreateUDBInstance`
+- Add `DescribeULB`
+- Add `TerminatePHost`
+- Add `CreateUMemSpace`
+- Add `DescribePHostImage`
+- Add `UpdateUDBInstanceBackupStrategy`
+- Add `CreateUSMSSignature`
+- Add `DescribePHost`
+- Update 
+- Add `GetUDPNLineList`
+- Add `CreateULB`
+- Add `BackupUDBInstanceBinlog`
+- Add `DescribeUDBInstanceState`
+- Affect 
+- Affect 
+- Affect 
+- Add `DescribeURedisGroup`
+- Add `UpdateVServerAttribute`
+- Add `BindEIP`
+- Add `DescribeURedisBackup`
+- Affect 
+- Affect 
+- Affect 
+- Affect 
+- Add `QueryUSMSTemplate`
+- Add `ModifyUHostInstanceTag`
+- Add `AttachUDisk`
+- Affect 
+- Add `ReinstallPHost`
+- Add `FetchUDBInstanceEarliestRecoverTime`
+- Update 
+- Update 
+- Update 
+- Add `ResizeShareBandwidth`
+- Add `AllocateShareBandwidth`
+- Add `DescribeUDBInstanceBackupState`
+- Add `DescribeFirewallResource`
+- Add `ModifyPHostInfo`
+- Update 
+- Affect 
+- Add `CreateUSMSTemplate`
+- Add `UpdateUDBParamGroup`
+- Update 
+- Add `DeleteVPC`
+- Add `DescribeUHostInstance`
+- Add `DescribeSubnetResource`
+- Add `ModifyEIPWeight`
+- Add `DeleteVPCIntercom`
+- Update 
+- Add `ImportCustomImage`
+- Add `CreateVPC`
+- Add `DescribeVServer`
+- Add `AllocateEIP`
+- Update 
+- Add `DeleteSSL`
+- Add `AllocateVIP`
+- Add `UpgradeToArkUHostInstance`
+- Add `AllocateUDPN`
+- Affect 
+- Update 
+- Add `ResizeUMemSpace`
+- Add `GetUHostInstanceVncInfo`
+- Add `AssociateEIPWithShareBandwidth`
+- Update 
+- Update 
+- Add `UploadUDBParamGroup`
+- Add `CreatePHost`
+- Update 
+- Add `CopyCustomImage`
+- Add `DetachUDisk`
+- Add `ModifyEIPBandwidth`
+- Add `UpdateSubnetAttribute`
+- Add `ModifyUDBInstanceName`
+- Add `DescribeUDiskSnapshot`
+- Add `CreateUDiskSnapshot`
+- Add `DescribeUDBInstance`
+- Add `CreateGlobalSSHInstance`
+- Add `DescribeUDBBackup`
+- Add `GetUSMSSendReceipt`
+- Add `GetEIPPayMode`
+- Add `DeleteURedisGroup`
+- Affect 
+- Affect 
+- Add `UnBindEIP`
+- Add `DescribeUDBType`
+- Add `CheckRecoverUDBInstance`
+- Update 
+- Affect 
+- Update 
+- Add `ModifyUDPNBandwidth`
+- Add `CreateUDBInstanceByRecovery`
+- Add `AllocateBackendBatch`
+- Update 
+- Add `DescribeImage`
+- Add `AddVPCNetwork`
+- Add `DeleteUDBLogPackage`
+- Affect 
+- Update 
+- Add `DeleteUMemSpace`
+- Add `GetUHostUpgradePrice`
+- Add `CreateProject`
+- Update 
+- Add `DeleteUDiskSnapshot`
+- Add `AllocateBackend`
+- Add `DescribeUDBInstanceBinlog`
+- Add `DisassociateEIPWithShareBandwidth`
+- Add `DescribeUDBInstanceBinlogBackupState`
+- Add `GetEIPUpgradePrice`
+- Add `GetUHostInstancePrice`
+- Add `DescribeUHostTags`
+- Update 
+- Update 
+
+ENHANCEMENT:
+
