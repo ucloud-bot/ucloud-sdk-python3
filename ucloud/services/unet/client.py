@@ -405,6 +405,11 @@ class UNetClient(Client):
         - **SubResourceName** (str) - 资源绑定的虚拟网卡的名称
         - **SubResourceType** (str) - 资源绑定的虚拟网卡的类型。uni，虚拟网卡。
 
+        **UnetEIPAddrSet** 
+        
+        - **IP** (str) - IP地址
+        - **OperatorName** (str) - 运营商信息如: 电信: Telecom, 联通: Unicom, 国际: International, Duplet: 双线IP（电信+联通), BGP: Bgp
+
         **UnetEIPSet** 
         
         - **Bandwidth** (int) - 弹性IP的带宽, 单位为Mbps, 当BandwidthType=1时, 该处显示为共享带宽值. 当BandwidthType=0时, 该处显示这个弹性IP的带宽.
