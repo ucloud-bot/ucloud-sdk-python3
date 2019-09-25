@@ -468,7 +468,7 @@ class UNetClient(Client):
         
         - **CreateTime** (int) - 防火墙组创建时间，格式为Unix Timestamp
         - **FWId** (str) - 防火墙ID
-        - **GroupId** (str) - 安全组ID（即将废弃）
+        - **GroupId** (int) - 安全组ID（即将废弃）
         - **Name** (str) - 防火墙名称
         - **Remark** (str) - 防火墙备注
         - **ResourceCount** (int) - 防火墙绑定资源数量
