@@ -403,12 +403,6 @@ class ULBClient(Client):
         - **Type** (str) - 内容转发匹配字段的类型，枚举值：Domain -> 域名；Path -> 路径； 默认内容转发类型下为空
         - **VServerId** (str) - 所属VServerId
 
-        **ULBSSLSet** 
-        
-        - **HashValue** (str) - 
-        - **SSLId** (str) - SSL证书的Id
-        - **SSLName** (str) - SSL证书的名字
-
         **ULBBackendSet** 
         
         - **BackendId** (str) - 后端资源实例的Id
@@ -424,6 +418,12 @@ class ULBClient(Client):
         - **SubResourceType** (str) - 资源绑定的虚拟网卡实例的类型
         - **SubnetId** (str) - 后端提供服务的资源所在的子网的ID
         - **Weight** (int) - 
+
+        **ULBSSLSet** 
+        
+        - **HashValue** (str) - 
+        - **SSLId** (str) - SSL证书的Id
+        - **SSLName** (str) - SSL证书的名字
 
         **ULBIPSet** 
         
@@ -510,6 +510,12 @@ class ULBClient(Client):
         - **PrivateIP** (str) - 后端资源的内网IP
         - **ResourceName** (str) - 后端资源的实例名称
 
+        **ULBSSLSet** 
+        
+        - **HashValue** (str) - 
+        - **SSLId** (str) - SSL证书的Id
+        - **SSLName** (str) - SSL证书的名字
+
         **ULBPolicySet** 
         
         - **BackendSet** (list) - 见 **PolicyBackendSet** 模型定义
@@ -520,12 +526,6 @@ class ULBClient(Client):
         - **TotalCount** (int) - 默认内容转发类型下返回当前rs总数
         - **Type** (str) - 内容转发匹配字段的类型，枚举值：Domain -> 域名；Path -> 路径； 默认内容转发类型下为空
         - **VServerId** (str) - 所属VServerId
-
-        **ULBSSLSet** 
-        
-        - **HashValue** (str) - 
-        - **SSLId** (str) - SSL证书的Id
-        - **SSLName** (str) - SSL证书的名字
 
         **ULBBackendSet** 
         

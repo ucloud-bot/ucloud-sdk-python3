@@ -142,7 +142,7 @@ class UHostClient(Client):
 
         **CreateUHostInstanceParamNetworkInterfaceIP** 
         
-        - **IPV6Adress** (str) - 创建云主机时指定ipv6地址
+        - **IPv6Adress** (str) - 创建云主机时指定ipv6地址(默认分配则填写auto)
 
         **CreateUHostInstanceParamNetworkInterfaceEIP** 
         

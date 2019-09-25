@@ -159,7 +159,7 @@ class CreateVPCRequestSchema(schema.RequestSchema):
     fields = {
         "Name": fields.Str(required=True, dump_to="Name"),
         "Network": fields.List(fields.Str()),
-        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "Remark": fields.Str(required=False, dump_to="Remark"),
         "Tag": fields.Str(required=False, dump_to="Tag"),
