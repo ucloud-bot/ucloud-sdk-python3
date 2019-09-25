@@ -384,6 +384,11 @@ class UNetClient(Client):
         
         **Response Model**
         
+        **UnetEIPAddrSet** 
+        
+        - **IP** (str) - IP地址
+        - **OperatorName** (str) - 运营商信息如: 电信: Telecom, 联通: Unicom, 国际: International, Duplet: 双线IP（电信+联通), BGP: Bgp
+
         **UnetEIPResourceSet** 
         
         - **EIPId** (str) - 弹性IP的资源ID
@@ -399,11 +404,6 @@ class UNetClient(Client):
         - **ShareBandwidth** (int) - 共享带宽带宽值
         - **ShareBandwidthId** (str) - 共享带宽ID
         - **ShareBandwidthName** (str) - 共享带宽的资源名称
-
-        **UnetEIPAddrSet** 
-        
-        - **IP** (str) - IP地址
-        - **OperatorName** (str) - 运营商信息如: 电信: Telecom, 联通: Unicom, 国际: International, Duplet: 双线IP（电信+联通), BGP: Bgp
 
         **UnetEIPSet** 
         
@@ -468,7 +468,7 @@ class UNetClient(Client):
         
         - **CreateTime** (int) - 防火墙组创建时间，格式为Unix Timestamp
         - **FWId** (str) - 防火墙ID
-        - **GroupId** (str) - 安全组ID（即将废弃）
+        - **GroupId** (int) - 安全组ID（即将废弃）
         - **Name** (str) - 防火墙名称
         - **Remark** (str) - 防火墙备注
         - **ResourceCount** (int) - 防火墙绑定资源数量

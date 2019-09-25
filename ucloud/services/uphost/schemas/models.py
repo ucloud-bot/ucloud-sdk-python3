@@ -3,6 +3,19 @@
 from ucloud.core.typesystem import schema, fields
 
 
+class PHostDiskSetSchema(schema.ResponseSchema):
+    """ PHostDiskSet - GetPHostTypeInfo
+    """
+
+    fields = {
+        "Count": fields.Int(required=False, load_from="Count"),
+        "IOCap": fields.Int(required=False, load_from="IOCap"),
+        "Name": fields.Str(required=False, load_from="Name"),
+        "Space": fields.Int(required=False, load_from="Space"),
+        "Type": fields.Str(required=False, load_from="Type"),
+    }
+
+
 class PHostIPSetSchema(schema.ResponseSchema):
     """ PHostIPSet - DescribePHost
     """
@@ -15,19 +28,6 @@ class PHostIPSetSchema(schema.ResponseSchema):
         "OperatorName": fields.Str(required=False, load_from="OperatorName"),
         "SubnetId": fields.Str(required=False, load_from="SubnetId"),
         "VPCId": fields.Str(required=False, load_from="VPCId"),
-    }
-
-
-class PHostDiskSetSchema(schema.ResponseSchema):
-    """ PHostDiskSet - GetPHostTypeInfo
-    """
-
-    fields = {
-        "Count": fields.Int(required=False, load_from="Count"),
-        "IOCap": fields.Int(required=False, load_from="IOCap"),
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Space": fields.Int(required=False, load_from="Space"),
-        "Type": fields.Str(required=False, load_from="Type"),
     }
 
 
