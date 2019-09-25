@@ -392,23 +392,6 @@ class ULBClient(Client):
         - **PrivateIP** (str) - 后端资源的内网IP
         - **ResourceName** (str) - 后端资源的实例名称
 
-        **ULBPolicySet** 
-        
-        - **BackendSet** (list) - 见 **PolicyBackendSet** 模型定义
-        - **Match** (str) - 内容转发匹配字段;默认内容转发类型下为空。
-        - **PolicyId** (str) - 内容转发Id，默认内容转发类型下为空。
-        - **PolicyPriority** (int) - 内容转发优先级，范围[1,9999]，数字越大优先级越高。默认内容转发规则下为0。
-        - **PolicyType** (str) - 内容类型，枚举值：Custom -> 客户自定义；Default -> 默认内容转发
-        - **TotalCount** (int) - 默认内容转发类型下返回当前rs总数
-        - **Type** (str) - 内容转发匹配字段的类型，枚举值：Domain -> 域名；Path -> 路径； 默认内容转发类型下为空
-        - **VServerId** (str) - 所属VServerId
-
-        **ULBSSLSet** 
-        
-        - **HashValue** (str) - 
-        - **SSLId** (str) - SSL证书的Id
-        - **SSLName** (str) - SSL证书的名字
-
         **ULBBackendSet** 
         
         - **BackendId** (str) - 后端资源实例的Id
@@ -425,13 +408,22 @@ class ULBClient(Client):
         - **SubnetId** (str) - 后端提供服务的资源所在的子网的ID
         - **Weight** (int) - 
 
-        **ULBIPSet** 
+        **ULBPolicySet** 
         
-        - **Bandwidth** (int) - 弹性IP的带宽值（暂未对外开放）
-        - **BandwidthType** (int) - 弹性IP的带宽类型，枚举值：1 表示是共享带宽，0 普通带宽类型（暂未对外开放）
-        - **EIP** (str) - 弹性IP地址
-        - **EIPId** (str) - 弹性IP的ID
-        - **OperatorName** (str) - 弹性IP的运营商信息，枚举值为：  Bgp：BGP IP International：国际IP
+        - **BackendSet** (list) - 见 **PolicyBackendSet** 模型定义
+        - **Match** (str) - 内容转发匹配字段;默认内容转发类型下为空。
+        - **PolicyId** (str) - 内容转发Id，默认内容转发类型下为空。
+        - **PolicyPriority** (int) - 内容转发优先级，范围[1,9999]，数字越大优先级越高。默认内容转发规则下为0。
+        - **PolicyType** (str) - 内容类型，枚举值：Custom -> 客户自定义；Default -> 默认内容转发
+        - **TotalCount** (int) - 默认内容转发类型下返回当前rs总数
+        - **Type** (str) - 内容转发匹配字段的类型，枚举值：Domain -> 域名；Path -> 路径； 默认内容转发类型下为空
+        - **VServerId** (str) - 所属VServerId
+
+        **ULBSSLSet** 
+        
+        - **HashValue** (str) - 
+        - **SSLId** (str) - SSL证书的Id
+        - **SSLName** (str) - SSL证书的名字
 
         **ULBVServerSet** 
         
@@ -451,6 +443,14 @@ class ULBClient(Client):
         - **Status** (int) - VServer的运行状态。枚举值： 0 -> rs全部运行正常;1 -> rs全部运行异常；2 -> rs部分运行异常。
         - **VServerId** (str) - VServer实例的Id
         - **VServerName** (str) - VServer实例的名字
+
+        **ULBIPSet** 
+        
+        - **Bandwidth** (int) - 弹性IP的带宽值（暂未对外开放）
+        - **BandwidthType** (int) - 弹性IP的带宽类型，枚举值：1 表示是共享带宽，0 普通带宽类型（暂未对外开放）
+        - **EIP** (str) - 弹性IP地址
+        - **EIPId** (str) - 弹性IP的ID
+        - **OperatorName** (str) - 弹性IP的运营商信息，枚举值为：  Bgp：BGP IP International：国际IP
 
         **ULBSet** 
         
@@ -510,6 +510,22 @@ class ULBClient(Client):
         - **PrivateIP** (str) - 后端资源的内网IP
         - **ResourceName** (str) - 后端资源的实例名称
 
+        **ULBBackendSet** 
+        
+        - **BackendId** (str) - 后端资源实例的Id
+        - **Enabled** (int) - 后端提供服务的实例启用与否，枚举值：0 禁用 1 启用
+        - **Port** (int) - 后端提供服务的端口
+        - **PrivateIP** (str) - 后端提供服务的内网IP
+        - **ResourceId** (str) - 资源实例的资源Id
+        - **ResourceName** (str) - 资源实例的资源名称
+        - **ResourceType** (str) - 资源实例的类型
+        - **Status** (int) - 后端提供服务的实例运行状态，枚举值：0健康检查健康状态 1 健康检查异常
+        - **SubResourceId** (str) - 资源绑定的虚拟网卡实例的资源Id
+        - **SubResourceName** (str) - 资源绑定的虚拟网卡实例的资源名称
+        - **SubResourceType** (str) - 资源绑定的虚拟网卡实例的类型
+        - **SubnetId** (str) - 后端提供服务的资源所在的子网的ID
+        - **Weight** (int) - 
+
         **ULBPolicySet** 
         
         - **BackendSet** (list) - 见 **PolicyBackendSet** 模型定义
@@ -526,22 +542,6 @@ class ULBClient(Client):
         - **HashValue** (str) - 
         - **SSLId** (str) - SSL证书的Id
         - **SSLName** (str) - SSL证书的名字
-
-        **ULBBackendSet** 
-        
-        - **BackendId** (str) - 后端资源实例的Id
-        - **Enabled** (int) - 后端提供服务的实例启用与否，枚举值：0 禁用 1 启用
-        - **Port** (int) - 后端提供服务的端口
-        - **PrivateIP** (str) - 后端提供服务的内网IP
-        - **ResourceId** (str) - 资源实例的资源Id
-        - **ResourceName** (str) - 资源实例的资源名称
-        - **ResourceType** (str) - 资源实例的类型
-        - **Status** (int) - 后端提供服务的实例运行状态，枚举值：0健康检查健康状态 1 健康检查异常
-        - **SubResourceId** (str) - 资源绑定的虚拟网卡实例的资源Id
-        - **SubResourceName** (str) - 资源绑定的虚拟网卡实例的资源名称
-        - **SubResourceType** (str) - 资源绑定的虚拟网卡实例的类型
-        - **SubnetId** (str) - 后端提供服务的资源所在的子网的ID
-        - **Weight** (int) - 
 
         **ULBVServerSet** 
         

@@ -37,24 +37,6 @@ class PolicyBackendSetSchema(schema.ResponseSchema):
     }
 
 
-class ULBPolicySetSchema(schema.ResponseSchema):
-    """ ULBPolicySet - 内容转发详细列表
-    """
-
-    fields = {
-        "BackendSet": fields.List(PolicyBackendSetSchema()),
-        "Match": fields.Str(required=False, load_from="Match"),
-        "PolicyId": fields.Str(required=False, load_from="PolicyId"),
-        "PolicyPriority": fields.Int(
-            required=False, load_from="PolicyPriority"
-        ),
-        "PolicyType": fields.Str(required=False, load_from="PolicyType"),
-        "TotalCount": fields.Int(required=False, load_from="TotalCount"),
-        "Type": fields.Str(required=False, load_from="Type"),
-        "VServerId": fields.Str(required=False, load_from="VServerId"),
-    }
-
-
 class ULBBackendSetSchema(schema.ResponseSchema):
     """ ULBBackendSet - DescribeULB
     """
@@ -77,6 +59,24 @@ class ULBBackendSetSchema(schema.ResponseSchema):
         ),
         "SubnetId": fields.Str(required=False, load_from="SubnetId"),
         "Weight": fields.Int(required=False, load_from="Weight"),
+    }
+
+
+class ULBPolicySetSchema(schema.ResponseSchema):
+    """ ULBPolicySet - 内容转发详细列表
+    """
+
+    fields = {
+        "BackendSet": fields.List(PolicyBackendSetSchema()),
+        "Match": fields.Str(required=False, load_from="Match"),
+        "PolicyId": fields.Str(required=False, load_from="PolicyId"),
+        "PolicyPriority": fields.Int(
+            required=False, load_from="PolicyPriority"
+        ),
+        "PolicyType": fields.Str(required=False, load_from="PolicyType"),
+        "TotalCount": fields.Int(required=False, load_from="TotalCount"),
+        "Type": fields.Str(required=False, load_from="Type"),
+        "VServerId": fields.Str(required=False, load_from="VServerId"),
     }
 
 

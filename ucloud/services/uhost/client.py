@@ -142,7 +142,7 @@ class UHostClient(Client):
 
         **CreateUHostInstanceParamNetworkInterfaceIP** 
         
-        - **IPV6Adress** (str) - 创建云主机时指定ipv6地址
+        - **IPv6Adress** (str) - 创建云主机时指定ipv6地址(默认分配则填写auto)
 
         **CreateUHostInstanceParamNetworkInterfaceEIP** 
         
@@ -153,6 +153,11 @@ class UHostClient(Client):
         - **PayMode** (str) - 弹性IP的计费模式. 枚举值: "Traffic", 流量计费; "Bandwidth", 带宽计费; "ShareBandwidth",共享带宽模式. "Free":免费带宽模式.默认为 "Bandwidth".
         - **ShareBandwidthId** (str) - 绑定的共享带宽Id，仅当PayMode为ShareBandwidth时有效
 
+        **CreateUHostInstanceParamNetworkInterface** 
+        
+        - **EIP** (dict) - 见 **CreateUHostInstanceParamNetworkInterfaceEIP** 模型定义
+        - **IP** (dict) - 见 **CreateUHostInstanceParamNetworkInterfaceIP** 模型定义
+
         **CreateUHostInstanceParamDisks** 
         
         - **BackupType** (str) - 磁盘备份方案。枚举值：\\ > NONE，无备份 \\ > DATAARK，数据方舟 \\ 当前磁盘支持的备份模式参考  `磁盘类型 <https://docs.ucloud.cn/api/uhost-api/disk_type>`_ 
@@ -162,11 +167,6 @@ class UHostClient(Client):
         - **KmsKeyId** (str) - 【功能仅部分可用区开放，详询技术支持】kms key id。选择加密盘时必填。
         - **Size** (int) - 磁盘大小，单位GB。请参考 `磁盘类型 <https://docs.ucloud.cn/api/uhost-api/disk_type>`_ 。
         - **Type** (str) - 磁盘类型。请参考 `磁盘类型 <https://docs.ucloud.cn/api/uhost-api/disk_type>`_ 。
-
-        **CreateUHostInstanceParamNetworkInterface** 
-        
-        - **EIP** (dict) - 见 **CreateUHostInstanceParamNetworkInterfaceEIP** 模型定义
-        - **IP** (dict) - 见 **CreateUHostInstanceParamNetworkInterfaceIP** 模型定义
 
         """
         # build request
@@ -258,16 +258,6 @@ class UHostClient(Client):
         
         **Response Model**
         
-        **UHostIPSet** 
-        
-        - **Bandwidth** (int) - IP对应的带宽, 单位: Mb (内网IP不显示带宽信息)
-        - **Default** (str) - 是否默认的弹性网卡的信息。true: 是默认弹性网卡；其他值：不是。
-        - **IP** (str) - IP地址
-        - **IPId** (str) - IP资源ID (内网IP无对应的资源ID)
-        - **SubnetId** (str) - IP地址对应的子网 ID（北京一当前字段为空）
-        - **Type** (str) - 国际: Internation，BGP: Bgp，内网: Private
-        - **VPCId** (str) - IP地址对应的VPC ID（北京一当前字段为空）
-
         **UHostDiskSet** 
         
         - **BackupType** (str) - 备份方案。若开通了数据方舟，则为DataArk
@@ -279,6 +269,16 @@ class UHostClient(Client):
         - **Name** (str) - UDisk名字（仅当磁盘是UDisk时返回）
         - **Size** (int) - 磁盘大小，单位: GB
         - **Type** (str) - 【建议不再使用】磁盘类型。系统盘: Boot，数据盘: Data,网络盘：Udisk
+
+        **UHostIPSet** 
+        
+        - **Bandwidth** (int) - IP对应的带宽, 单位: Mb (内网IP不显示带宽信息)
+        - **Default** (str) - 是否默认的弹性网卡的信息。true: 是默认弹性网卡；其他值：不是。
+        - **IP** (str) - IP地址
+        - **IPId** (str) - IP资源ID (内网IP无对应的资源ID)
+        - **SubnetId** (str) - IP地址对应的子网 ID（北京一当前字段为空）
+        - **Type** (str) - 国际: Internation，BGP: Bgp，内网: Private
+        - **VPCId** (str) - IP地址对应的VPC ID（北京一当前字段为空）
 
         **UHostInstanceSet** 
         
