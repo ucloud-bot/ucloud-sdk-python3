@@ -258,6 +258,16 @@ class UHostClient(Client):
         
         **Response Model**
         
+        **UHostIPSet** 
+        
+        - **Bandwidth** (int) - IP对应的带宽, 单位: Mb (内网IP不显示带宽信息)
+        - **Default** (str) - 是否默认的弹性网卡的信息。true: 是默认弹性网卡；其他值：不是。
+        - **IP** (str) - IP地址
+        - **IPId** (str) - IP资源ID (内网IP无对应的资源ID)
+        - **SubnetId** (str) - IP地址对应的子网 ID（北京一当前字段为空）
+        - **Type** (str) - 国际: Internation，BGP: Bgp，内网: Private
+        - **VPCId** (str) - IP地址对应的VPC ID（北京一当前字段为空）
+
         **UHostDiskSet** 
         
         - **BackupType** (str) - 备份方案。若开通了数据方舟，则为DataArk
@@ -269,16 +279,6 @@ class UHostClient(Client):
         - **Name** (str) - UDisk名字（仅当磁盘是UDisk时返回）
         - **Size** (int) - 磁盘大小，单位: GB
         - **Type** (str) - 【建议不再使用】磁盘类型。系统盘: Boot，数据盘: Data,网络盘：Udisk
-
-        **UHostIPSet** 
-        
-        - **Bandwidth** (int) - IP对应的带宽, 单位: Mb (内网IP不显示带宽信息)
-        - **Default** (str) - 是否默认的弹性网卡的信息。true: 是默认弹性网卡；其他值：不是。
-        - **IP** (str) - IP地址
-        - **IPId** (str) - IP资源ID (内网IP无对应的资源ID)
-        - **SubnetId** (str) - IP地址对应的子网 ID（北京一当前字段为空）
-        - **Type** (str) - 国际: Internation，BGP: Bgp，内网: Private
-        - **VPCId** (str) - IP地址对应的VPC ID（北京一当前字段为空）
 
         **UHostInstanceSet** 
         
