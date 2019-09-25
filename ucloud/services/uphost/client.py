@@ -98,6 +98,16 @@ class UPHostClient(Client):
         - **SubnetId** (str) - 子网ID
         - **VPCId** (str) - VPC ID
 
+        **PHostDiskSet** 
+        
+        - **Bandwidth** (int) - IP对应带宽，单位Mb，内网IP不显示带宽信息
+        - **IPAddr** (str) - IP地址，
+        - **IPId** (str) - IP资源ID(内网IP无资源ID)（待废弃）
+        - **MACAddr** (str) - MAC地址
+        - **OperatorName** (str) - 国际: Internation， BGP: BGP， 内网: Private
+        - **SubnetId** (str) - 子网ID
+        - **VPCId** (str) - VPC ID
+
         **PHostSet** 
         
         - **AutoRenew** (str) - 自动续费
