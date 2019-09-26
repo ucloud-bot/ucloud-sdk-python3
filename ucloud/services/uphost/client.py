@@ -81,13 +81,6 @@ class UPHostClient(Client):
         - **Space** (int) - 单盘大小，单位GB
         - **Type** (str) - 磁盘属性
 
-        **PHostCPUSet** 
-        
-        - **CoreCount** (int) - CPU核数
-        - **Count** (int) - CPU个数
-        - **Frequence** (float) - CPU主频
-        - **Model** (str) - CPU型号
-
         **PHostIPSet** 
         
         - **Bandwidth** (int) - IP对应带宽，单位Mb，内网IP不显示带宽信息
@@ -97,6 +90,13 @@ class UPHostClient(Client):
         - **OperatorName** (str) - 国际: Internation， BGP: BGP， 内网: Private
         - **SubnetId** (str) - 子网ID
         - **VPCId** (str) - VPC ID
+
+        **PHostCPUSet** 
+        
+        - **CoreCount** (int) - CPU核数
+        - **Count** (int) - CPU个数
+        - **Frequence** (float) - CPU主频
+        - **Model** (str) - CPU型号
 
         **PHostSet** 
         
