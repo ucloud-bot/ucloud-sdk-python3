@@ -510,6 +510,22 @@ class ULBClient(Client):
         - **PrivateIP** (str) - 后端资源的内网IP
         - **ResourceName** (str) - 后端资源的实例名称
 
+        **ULBBackendSet** 
+        
+        - **BackendId** (str) - 后端资源实例的Id
+        - **Enabled** (int) - 后端提供服务的实例启用与否，枚举值：0 禁用 1 启用
+        - **Port** (int) - 后端提供服务的端口
+        - **PrivateIP** (str) - 后端提供服务的内网IP
+        - **ResourceId** (str) - 资源实例的资源Id
+        - **ResourceName** (str) - 资源实例的资源名称
+        - **ResourceType** (str) - 资源实例的类型
+        - **Status** (int) - 后端提供服务的实例运行状态，枚举值：0健康检查健康状态 1 健康检查异常
+        - **SubResourceId** (str) - 资源绑定的虚拟网卡实例的资源Id
+        - **SubResourceName** (str) - 资源绑定的虚拟网卡实例的资源名称
+        - **SubResourceType** (str) - 资源绑定的虚拟网卡实例的类型
+        - **SubnetId** (str) - 后端提供服务的资源所在的子网的ID
+        - **Weight** (int) - 
+
         **ULBPolicySet** 
         
         - **BackendSet** (list) - 见 **PolicyBackendSet** 模型定义

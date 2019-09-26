@@ -83,13 +83,11 @@ class UPHostClient(Client):
 
         **PHostIPSet** 
         
-        - **Bandwidth** (int) - IP对应带宽，单位Mb，内网IP不显示带宽信息
-        - **IPAddr** (str) - IP地址，
-        - **IPId** (str) - IP资源ID(内网IP无资源ID)（待废弃）
-        - **MACAddr** (str) - MAC地址
-        - **OperatorName** (str) - 国际: Internation， BGP: BGP， 内网: Private
-        - **SubnetId** (str) - 子网ID
-        - **VPCId** (str) - VPC ID
+        - **Count** (int) - 磁盘数量
+        - **IOCap** (int) - 磁盘IO性能，单位MB/s（待废弃）
+        - **Name** (str) - 磁盘名称，sys/data
+        - **Space** (int) - 单盘大小，单位GB
+        - **Type** (str) - 磁盘属性
 
         **PHostCPUSet** 
         
