@@ -510,6 +510,12 @@ class ULBClient(Client):
         - **PrivateIP** (str) - 后端资源的内网IP
         - **ResourceName** (str) - 后端资源的实例名称
 
+        **ULBSSLSet** 
+        
+        - **HashValue** (str) - 
+        - **SSLId** (str) - SSL证书的Id
+        - **SSLName** (str) - SSL证书的名字
+
         **ULBPolicySet** 
         
         - **BackendSet** (list) - 见 **PolicyBackendSet** 模型定义
@@ -536,12 +542,6 @@ class ULBClient(Client):
         - **SubResourceType** (str) - 资源绑定的虚拟网卡实例的类型
         - **SubnetId** (str) - 后端提供服务的资源所在的子网的ID
         - **Weight** (int) - 
-
-        **ULBSSLSet** 
-        
-        - **HashValue** (str) - 
-        - **SSLId** (str) - SSL证书的Id
-        - **SSLName** (str) - SSL证书的名字
 
         **ULBVServerSet** 
         

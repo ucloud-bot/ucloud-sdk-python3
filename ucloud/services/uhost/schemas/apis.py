@@ -119,6 +119,20 @@ class CreateUHostInstanceParamNetworkInterfaceEIPSchema(schema.RequestSchema):
     }
 
 
+class CreateUHostInstanceParamNetworkInterfaceSchema(schema.RequestSchema):
+    """ CreateUHostInstanceParamNetworkInterface - 
+    """
+
+    fields = {
+        "EIP": CreateUHostInstanceParamNetworkInterfaceEIPSchema(
+            required=False, dump_to="EIP"
+        ),
+        "IP": CreateUHostInstanceParamNetworkInterfaceIPSchema(
+            required=False, dump_to="IP"
+        ),
+    }
+
+
 class CreateUHostInstanceParamDisksSchema(schema.RequestSchema):
     """ CreateUHostInstanceParamDisks - 
     """
@@ -131,20 +145,6 @@ class CreateUHostInstanceParamDisksSchema(schema.RequestSchema):
         "KmsKeyId": fields.Str(required=False, dump_to="KmsKeyId"),
         "Size": fields.Int(required=True, dump_to="Size"),
         "Type": fields.Str(required=True, dump_to="Type"),
-    }
-
-
-class CreateUHostInstanceParamNetworkInterfaceSchema(schema.RequestSchema):
-    """ CreateUHostInstanceParamNetworkInterface - 
-    """
-
-    fields = {
-        "EIP": CreateUHostInstanceParamNetworkInterfaceEIPSchema(
-            required=False, dump_to="EIP"
-        ),
-        "IP": CreateUHostInstanceParamNetworkInterfaceIPSchema(
-            required=False, dump_to="IP"
-        ),
     }
 
 
@@ -289,6 +289,8 @@ class DescribeUHostInstanceResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
+        "Action": fields.Str(required=True, load_from="Action"),
+        "RetCode": fields.Int(required=True, load_from="RetCode"),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
         "UHostSet": fields.List(
             models.UHostInstanceSetSchema(),
@@ -641,6 +643,7 @@ class ReinstallUHostInstanceRequestSchema(schema.RequestSchema):
         "ReserveDisk": fields.Str(required=False, dump_to="ReserveDisk"),
         "ResourceType": fields.Int(required=False, dump_to="ResourceType"),
         "UHostId": fields.Str(required=True, dump_to="UHostId"),
+        "UserData": fields.Str(required=False, dump_to="UserData"),
         "Zone": fields.Str(required=False, dump_to="Zone"),
     }
 

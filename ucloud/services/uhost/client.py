@@ -123,7 +123,7 @@ class UHostClient(Client):
         - **Tag** (str) - 业务组。默认：Default（Default即为未分组）。请遵照 `字段规范 <https://docs.ucloud.cn/api/uhost-api/specification>`_ 设定业务组。
         - **TimemachineFeature** (str) - 【待废弃，不建议调用】是否开启方舟特性。Yes为开启方舟，No为关闭方舟。目前仅选择普通本地盘+普通本地盘 或 SSD云盘+普通云盘的组合支持开启方舟。
         - **UHostType** (str) - 【建议后续不再使用】云主机机型V1.0。参考 `云主机机型说明 <https://docs.ucloud.cn/api/uhost-api/uhost_type>`_ 。
-        - **UserData** (str) - cloudinit初始化使用。使用base64编码
+        - **UserData** (str) - cloudinit初始化使用。注意：1、总数据量大小不超多16K；2、使用base64编码
         - **UserDataScript** (str) - 【暂不支持】cloudinit方式下，用户初始化脚本
         - **VPCId** (str) - VPC ID。默认为当前地域的默认VPC。
         
@@ -207,7 +207,7 @@ class UHostClient(Client):
         **UHostImageSet** 
         
         - **CreateTime** (int) - 创建时间，格式为Unix时间戳
-        - **Features** (list) - 特殊状态标识， 目前包含NetEnhnced（网络增强1.0）, NetEnhanced_Ultra]（网络增强2.0）
+        - **Features** (list) - 特殊状态标识， 目前包含NetEnhnced（网络增强1.0）, NetEnhanced_Ultra]（网络增强2.0）,HotPlug(热升级),CloudInit
         - **FuncType** (str) - 行业镜像类型（仅行业镜像将返回这个值）
         - **ImageDescription** (str) - 镜像描述
         - **ImageId** (str) - 镜像ID
@@ -253,6 +253,8 @@ class UHostClient(Client):
         
         **Response**
 
+        - **Action** (str) - 操作名称
+        - **RetCode** (int) - 返回码
         - **TotalCount** (int) - UHostInstance总数
         - **UHostSet** (list) - 见 **UHostInstanceSet** 模型定义
         
@@ -653,6 +655,7 @@ class UHostClient(Client):
         - **Password** (str) - 如果创建UHost实例时LoginMode为Password，则必须填写，如果LoginMode为KeyPair，不需要填写 （密码格式使用BASE64编码；LoginMode不可变更）
         - **ReserveDisk** (str) - 是否保留数据盘，保留：Yes，不报留：No， 默认：Yes；如果是从Windows重装为Linux或反之，则无法保留数据盘
         - **ResourceType** (int) - 云灾备指明191
+        - **UserData** (str) - cloudinit初始化使用。注意：1、总数据量大小不超多16K；2、使用base64编码
         - **Zone** (str) - 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         
         **Response**
