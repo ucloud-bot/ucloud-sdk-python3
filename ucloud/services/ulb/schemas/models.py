@@ -80,6 +80,19 @@ class ULBBackendSetSchema(schema.ResponseSchema):
     }
 
 
+class ULBIPSetSchema(schema.ResponseSchema):
+    """ ULBIPSet - DescribeULB
+    """
+
+    fields = {
+        "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
+        "BandwidthType": fields.Int(required=False, load_from="BandwidthType"),
+        "EIP": fields.Str(required=False, load_from="EIP"),
+        "EIPId": fields.Str(required=False, load_from="EIPId"),
+        "OperatorName": fields.Str(required=False, load_from="OperatorName"),
+    }
+
+
 class ULBVServerSetSchema(schema.ResponseSchema):
     """ ULBVServerSet - DescribeULB
     """
@@ -105,19 +118,6 @@ class ULBVServerSetSchema(schema.ResponseSchema):
         "Status": fields.Int(required=False, load_from="Status"),
         "VServerId": fields.Str(required=False, load_from="VServerId"),
         "VServerName": fields.Str(required=False, load_from="VServerName"),
-    }
-
-
-class ULBIPSetSchema(schema.ResponseSchema):
-    """ ULBIPSet - DescribeULB
-    """
-
-    fields = {
-        "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
-        "BandwidthType": fields.Int(required=False, load_from="BandwidthType"),
-        "EIP": fields.Str(required=False, load_from="EIP"),
-        "EIPId": fields.Str(required=False, load_from="EIPId"),
-        "OperatorName": fields.Str(required=False, load_from="OperatorName"),
     }
 
 

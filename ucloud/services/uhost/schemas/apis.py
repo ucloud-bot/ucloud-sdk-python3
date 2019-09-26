@@ -98,7 +98,7 @@ class CreateUHostInstanceParamNetworkInterfaceIPSchema(schema.RequestSchema):
     """ CreateUHostInstanceParamNetworkInterfaceIP - 
     """
 
-    fields = {"IPV6Adress": fields.Str(required=False, dump_to="IPV6Adress")}
+    fields = {"IPv6Adress": fields.Str(required=False, dump_to="IPv6Adress")}
 
 
 class CreateUHostInstanceParamNetworkInterfaceEIPSchema(schema.RequestSchema):
