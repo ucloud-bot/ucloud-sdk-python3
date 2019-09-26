@@ -130,6 +130,9 @@ class CreateUDiskRequestSchema(schema.RequestSchema):
         "CmkId": fields.Str(required=False, dump_to="CmkId"),
         "CouponId": fields.Str(required=False, dump_to="CouponId"),
         "DiskType": fields.Str(required=False, dump_to="DiskType"),
+        "IgnoreUBillInfo": fields.Str(
+            required=False, dump_to="IgnoreUBillInfo"
+        ),
         "Name": fields.Str(required=True, dump_to="Name"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Quantity": fields.Int(required=False, dump_to="Quantity"),

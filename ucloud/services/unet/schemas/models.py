@@ -71,23 +71,6 @@ class UnetBandwidthUsageEIPSetSchema(schema.ResponseSchema):
     }
 
 
-class ShareBandwidthSetSchema(schema.ResponseSchema):
-    """ ShareBandwidthSet - DescribeEIP
-    """
-
-    fields = {
-        "ShareBandwidth": fields.Int(
-            required=False, load_from="ShareBandwidth"
-        ),
-        "ShareBandwidthId": fields.Str(
-            required=False, load_from="ShareBandwidthId"
-        ),
-        "ShareBandwidthName": fields.Str(
-            required=False, load_from="ShareBandwidthName"
-        ),
-    }
-
-
 class UnetEIPResourceSetSchema(schema.ResponseSchema):
     """ UnetEIPResourceSet - DescribeEIP
     """
@@ -103,6 +86,23 @@ class UnetEIPResourceSetSchema(schema.ResponseSchema):
         ),
         "SubResourceType": fields.Str(
             required=False, load_from="SubResourceType"
+        ),
+    }
+
+
+class ShareBandwidthSetSchema(schema.ResponseSchema):
+    """ ShareBandwidthSet - DescribeEIP
+    """
+
+    fields = {
+        "ShareBandwidth": fields.Int(
+            required=False, load_from="ShareBandwidth"
+        ),
+        "ShareBandwidthId": fields.Str(
+            required=False, load_from="ShareBandwidthId"
+        ),
+        "ShareBandwidthName": fields.Str(
+            required=False, load_from="ShareBandwidthName"
         ),
     }
 
@@ -152,7 +152,7 @@ class FirewallDataSetSchema(schema.ResponseSchema):
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
         "FWId": fields.Str(required=True, load_from="FWId"),
-        "GroupId": fields.Str(required=True, load_from="GroupId"),
+        "GroupId": fields.Int(required=True, load_from="GroupId"),
         "Name": fields.Str(required=False, load_from="Name"),
         "Remark": fields.Str(required=False, load_from="Remark"),
         "ResourceCount": fields.Int(required=False, load_from="ResourceCount"),

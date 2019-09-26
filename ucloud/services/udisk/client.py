@@ -122,6 +122,7 @@ class UDiskClient(Client):
         - **CmkId** (str) - 加密需要的cmk id，UKmsMode为Yes时，必填
         - **CouponId** (str) - 使用的代金券id
         - **DiskType** (str) - UDisk 类型: DataDisk（普通数据盘），SSDDataDisk（SSD数据盘），RSSDDataDisk（RSSD数据盘），默认值（DataDisk）
+        - **IgnoreUBillInfo** (str) - 是否忽略计费信息。Yes：忽略，No：不忽略，默认值（No）
         - **Quantity** (int) - 购买时长 默认: 1
         - **Tag** (str) - 业务组 默认：Default
         - **UDataArkMode** (str) - 是否开启数据方舟
