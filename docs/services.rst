@@ -1,12 +1,6 @@
 UCloud SDK Services
 ===================
 
-PathX
------
-
-.. autoclass:: ucloud.services.pathx.client.PathXClient
-   :members:
-
 StepFlow
 --------
 
@@ -17,6 +11,12 @@ UAccount
 --------
 
 .. autoclass:: ucloud.services.uaccount.client.UAccountClient
+   :members:
+
+UCDN
+----
+
+.. autoclass:: ucloud.services.ucdn.client.UCDNClient
    :members:
 
 UDB
@@ -67,9 +67,9 @@ UPHost
 .. autoclass:: ucloud.services.uphost.client.UPHostClient
    :members:
 
-VPC
----
+USMS
+----
 
-.. autoclass:: ucloud.services.vpc.client.VPCClient
+.. autoclass:: ucloud.services.usms.client.USMSClient
    :members:
 
