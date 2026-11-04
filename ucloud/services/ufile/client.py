@@ -486,6 +486,7 @@ class UFileClient(Client):
 
 
         **UFileBucketSet**
+        - **AcStorage** (int) - 归档存储量,单位Byte
         - **Biz** (str) - Bucket所属业务, general或vod或udb general: 普通业务； vod: 视频云业务; udb: 云数据库业务
         - **BucketId** (str) - Bucket的ID
         - **BucketName** (str) - Bucket名称
@@ -493,8 +494,10 @@ class UFileClient(Client):
         - **CreateTime** (int) - Bucket的创建时间
         - **Domain** (dict) - 见 **UFileDomainSet** 模型定义
         - **HasUserDomain** (int) - 是否存在自定义域名。0不存在，1存在，2错误
+        - **IaStorage** (int) - 低频存储量,单位Byte
         - **ModifyTime** (int) - Bucket的修改时间
         - **Region** (str) - Bucket所属地域
+        - **Storage** (int) - 标准存储量,单位Byte
         - **StorageClass** (str) - 默认存储类型
         - **Tag** (str) - 所属业务组
         - **Type** (str) - Bucket访问类型
@@ -1033,6 +1036,14 @@ class UFileClient(Client):
 
         **Response Model**
 
+        **UFileTotalReportItem**
+        - **ApiTimes** (float) - API请求次数（万次）
+        - **BusyFlow** (float) - 忙时流量；单位GB；海外无此字段
+        - **CdnFlow** (float) - cdn回源流量;单位GB
+        - **Flow** (float) - 下载流量：单位GB；国内无此字段
+        - **IdleFlow** (float) - 闲时流量；单位GB；海外无此字段
+
+
         **UFileDailyReportItem**
         - **AcExpeditedRetrieval** (float) - 归档-高优先级解冻量，即归档文件的解冻类型为高优先级（Expedited）的解冻量；单位GB
         - **AcRestore** (float) - 归档-标准解冻量，即归档文件的解冻类型为标准（Strandard）的解冻量；单位GB
@@ -1051,14 +1062,6 @@ class UFileClient(Client):
         - **ImageHandleFlow** (float) - 基础图片处理量；单位GB
         - **ObjectTagCount** (float) - 对象标签个数; 单位万个
         - **Storage** (float) - 标准-存储总容量；单位GB
-
-
-        **UFileTotalReportItem**
-        - **ApiTimes** (float) - API请求次数（万次）
-        - **BusyFlow** (float) - 忙时流量；单位GB；海外无此字段
-        - **CdnFlow** (float) - cdn回源流量;单位GB
-        - **Flow** (float) - 下载流量：单位GB；国内无此字段
-        - **IdleFlow** (float) - 闲时流量；单位GB；海外无此字段
 
 
         **UFileReportItem**
